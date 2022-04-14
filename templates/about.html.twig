@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5 col-sm-8 offset-4">
+        <div class="col-sm-2">
+            <img class="img-fluid" src="img/m.webp" alt="m">
+        </div>
+        <div class="col-sm-2">
+            <img class="img-fluid" src="img/v.png" alt="v">
+        </div>
+        <div class="col-sm-2">
+            <img class="img-fluid" src="img/c.png" alt="c">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5 col-sm-12">
+            {{ include('text/about.markdown.twig')|markdown_to_html }}
+    </div>
+</div>
+
+<div class="container">
+    <a href="https://github.com/dbwebb-se/mvc">Kursrepo på GitHub</a>
+</div>
+
+{% endblock %}

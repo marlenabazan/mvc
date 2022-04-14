@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5 col-md-12">
+        <div class="col-sm-3 offset-1">
+            <img class="img-fluid" src="img/fin_bild.jpeg" alt="bild">
+        </div>
+
+        <div class="col-sm-7">
+            {{ include('text/presentation.markdown.twig')|markdown_to_html }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
