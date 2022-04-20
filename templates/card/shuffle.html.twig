@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row mt-5 col-md-12">
+        <div class="col-sm-12 offset-9">
+            <a href="{{ url("shuffle") }}">Shuffle again</a> |
+            <a href="{{ url("draw") }}">Draw</a>
+        </div>
+    </div>
+
+
+    <div class="row mt-5 col-md-12">
+        <div class="col-sm-12">
+
+        {% for card in shuffled %}
+        <img src='{{ asset('img/cards_img/' ~ card ~ '.svg') }}' alt="card" width="90">
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
