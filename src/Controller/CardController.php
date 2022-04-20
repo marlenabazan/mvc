@@ -118,4 +118,61 @@ class CardController extends AbstractController
         return $this->redirectToRoute('draw');
     }
 
+    /**
+     * @Route("/card/deck/draw/{number}", name="draw-number-process", methods={"GET", "POST"})
+     */
+    public function drawNumberProcess(
+        Request $request,
+        SessionInterface $session,
+        int $number
+        ): Response
+    {
+        $newDeck = new \App\Card\Deck();
+        $deck = $newDeck->getDeck();
+        shuffle($deck);
+
+        $card = $session->get("card") ?? null;
+
+        $draw = $request->request->get('draw');
+        $clear = $request->request->get('clear');
+
+        $left = $session->get("left") ?? 52;
+        $deck = $session->get("deck") ?? $deck;
+
+        $cards = [];
+
+        if ($draw) {
+            for ($i = 1; $i <= $number; $i++) {
+                $card = array_shift($deck);
+                array_push($cards, $card);
+            }
+
+            $left = count($deck);
+
+            $session->set("left", $left);
+            $session->set("deck", $deck);
+
+        } elseif ($clear) {
+            $this->addFlash("warning", "You cleared the game.");
+
+            $left = 52;
+            $deck = new \App\Card\Deck();
+            $deck = $deck->getDeck();
+            shuffle($deck);
+
+            $session->set("left", 52);
+            $session->set("deck", $deck);
+        }
+
+        $this->addFlash("info", "You have $left cards left.");
+
+        $data = [
+            'title' => 'Draw number',
+            'cards' => $cards,
+            'number' => $number,
+        ];
+
+        return $this->render('card/draw-number.html.twig', $data);
+    }
+
 }
