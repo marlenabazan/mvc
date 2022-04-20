@@ -33,7 +33,6 @@ class CardController extends AbstractController
         $data = [
             'title' => 'Deck',
             'deck' => $deck->getDeck(),
-            'faces' => $deck->getFaces(),
         ];
         return $this->render('card/deck.html.twig', $data);
     }
@@ -46,6 +45,7 @@ class CardController extends AbstractController
         $deck = new \App\Card\Deck();
         $deck = $deck->getDeck();
         shuffle($deck);
+
         $data = [
             'title' => 'Shuffle',
             'shuffled' => $deck,
@@ -173,6 +173,21 @@ class CardController extends AbstractController
         ];
 
         return $this->render('card/draw-number.html.twig', $data);
+    }
+
+    /**
+     * @Route("/card/deck2", name="deck2")
+     */
+    public function deckWith2Jokers(): Response
+    {
+        $deck = new \App\Card\DeckWith2Jokers();
+        $deck = $deck->getDeckWithJokers();
+
+        $data = [
+            'title' => 'Deck with 2 jokers',
+            'deck' => $deck,
+        ];
+        return $this->render('card/deck.html.twig', $data);
     }
 
 }
