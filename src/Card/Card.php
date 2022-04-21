@@ -4,39 +4,22 @@ namespace App\Card;
 
 class Card
 {
+    const COLOR1 = 'red';
+    const COLOR2 = 'black';
 
-    private $suits = array(
-        'H',
-        'D',
-        'C',
-        'S'
-    );
+    public $face;
+    public $suit;
+    public $color;
 
-    protected $faces = array(
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        'J',
-        'Q',
-        'K',
-        'A'
-    );
-
-    protected $deck = array();
-
-    public function __construct()
+    function __construct($face='', $suit='', $color='')
     {
-        foreach ($this->suits as $suit) {
-            foreach ($this->faces as $face) {
-                $deck[] = $face . $suit;
-            }
-        }
-        $this->deck = $deck;
+        $this->face = $face;
+        $this->suit = $suit;
+        $this->color = $color;
+    }
+
+    public function getAsString(): string
+    {
+        return "{$this->face}{$this->suit}";
     }
 }
