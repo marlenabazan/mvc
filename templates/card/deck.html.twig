@@ -18,11 +18,9 @@
 
     <div class="row mt-5 col-md-12">
         <div class="col-sm-12">
-
-        {% for card in deck %}
-        <img src='{{ asset('img/cards_img/' ~ card ~ '.svg') }}' alt="card" width="90">
-        {% endfor %}
-
+            {% for card in deck %}
+            <img src='{{ asset('img/cards_img/' ~ card ~ '.svg') }}' alt="card" width="90">
+            {% endfor %}
         </div>
     </div>
 

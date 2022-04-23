@@ -17,9 +17,4 @@ class Card
         $this->suit = $suit;
         $this->color = $color;
     }
-
-    public function getAsString(): string
-    {
-        return "{$this->face}{$this->suits}]";
-    }
 }

@@ -48,30 +48,9 @@ class Deck extends Card
     public function getDeck()
     {
         foreach ($this->deck as $card) {
-
             $oneCard = ($card->face . $card->suit);
             $this->deckStr[] = $oneCard;
-
         }
         return $this->deckStr;
-    }
-
-    public function shuffle()
-    {
-        shuffle($this->deck);
-        return $this->deck;
-    }
-
-    public function getFaces()
-    {
-        return $this->faces;
-    }
-
-    public function drawCard()
-    {
-        shuffle($this->deck);
-        $card = array_shift($this->deck);
-
-        return $card;
     }
 }

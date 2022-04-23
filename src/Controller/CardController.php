@@ -61,7 +61,6 @@ class CardController extends AbstractController
         SessionInterface $session
         ): Response
     {
-
         $card = $session->get("card") ?? 'back_card';
 
         $data = [
@@ -84,34 +83,31 @@ class CardController extends AbstractController
         $deck = $deck->getDeck();
         shuffle($deck);
 
-        $draw = $request->request->get('draw');
-        $clear = $request->request->get('clear');
+        $draw = $request->request->get("draw");
+        $clear = $request->request->get("clear");
 
-        $left = $session->get("left") ?? 52;
         $deck = $session->get("deck") ?? $deck;
         $card = $session->get("card") ?? null;
 
 
         if ($draw) {
             $card = array_shift($deck);
-            $left = count($deck);
 
-            $session->set("left", $left);
             $session->set("deck", $deck);
             $session->set("card", $card);
 
         } elseif ($clear) {
             $this->addFlash("warning", "You cleared the game.");
 
-            $left = 52;
             $deck = new \App\Card\Deck();
             $deck = $deck->getDeck();
             shuffle($deck);
 
-            $session->set("left", 52);
             $session->set("deck", $deck);
             $session->set("card", null);
         }
+
+        $left = count($deck);
 
         $this->addFlash("info", "You have $left cards left.");
 
@@ -121,7 +117,7 @@ class CardController extends AbstractController
     /**
      * @Route("/card/deck/draw/{number}", name="draw-number-process", methods={"GET", "POST"})
      */
-    public function drawNumberProcess(
+    public function drawNumber(
         Request $request,
         SessionInterface $session,
         int $number
@@ -131,12 +127,9 @@ class CardController extends AbstractController
         $deck = $deck->getDeck();
         shuffle($deck);
 
-        $card = $session->get("card") ?? null;
+        $draw = $request->request->get("draw");
+        $clear = $request->request->get("clear");
 
-        $draw = $request->request->get('draw');
-        $clear = $request->request->get('clear');
-
-        $left = $session->get("left") ?? 52;
         $deck = $session->get("deck") ?? $deck;
 
         $cards = array();
@@ -147,22 +140,19 @@ class CardController extends AbstractController
                 array_push($cards, $card);
             }
 
-            $left = count($deck);
-
-            $session->set("left", $left);
             $session->set("deck", $deck);
 
         } elseif ($clear) {
             $this->addFlash("warning", "You cleared the game.");
 
-            $left = 52;
             $deck = new \App\Card\Deck();
             $deck = $deck->getDeck();
             shuffle($deck);
 
-            $session->set("left", 52);
             $session->set("deck", $deck);
         }
+
+        $left = count($deck);
 
         $this->addFlash("info", "You have $left cards left.");
 
@@ -189,10 +179,9 @@ class CardController extends AbstractController
         $deck = $deck->getDeck();
         shuffle($deck);
 
-        $deal = $request->request->get('deal');
-        $clear = $request->request->get('clear');
+        $deal = $request->request->get("deal");
+        $clear = $request->request->get("clear");
 
-        $left = $session->get("left") ?? 52;
         $deck = $session->get("deck") ?? $deck;
 
         $listOfPlayers = array();
@@ -213,28 +202,25 @@ class CardController extends AbstractController
                 }
                 // var_dump($listOfPlayers);
 
-                $left = count($deck);
-
-                $session->set("left", $left);
                 $session->set("deck", $deck);
 
             } else {
-                $this->addFlash('warning', 'Not enough cards to deal.');
+                $this->addFlash("warning", "Not enough cards to deal.");
             }
-        }elseif ($clear) {
+        } elseif ($clear) {
             $this->addFlash("warning", "You cleared the game.");
 
-            $left = 52;
             $deck = new \App\Card\Deck();
             $deck = $deck->getDeck();
             shuffle($deck);
 
-            $session->set("left", 52);
             $session->set("deck", $deck);
             $session->set("card", null);
         }
 
-        $this->addFlash('info', "You have $left cards left.");
+        $left = count($deck);
+
+        $this->addFlash("info", "You have $left cards left.");
 
         $data = [
             'title' => 'Deal',
