@@ -20,6 +20,6 @@ class Card
 
     public function getAsString(): string
     {
-        return "{$this->face}{$this->suit}";
+        return "{$this->face}{$this->suits}]";
     }
 }

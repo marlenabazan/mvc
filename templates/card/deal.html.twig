@@ -8,11 +8,24 @@
 
     <div class="row mt-5 col-md-12">
         <div class="col-sm-12">
-            deal
+            <form method="post">
+                <input type="submit" name="deal" value="Deal">
+                <input type="submit" name="clear" value="Shuffle">
+                {{ include('card/flash-message.html.twig') }}
+            </form>
+
+            {% for player in players %}
+            <br/>Player {{ loop.index }}<br/>
+                {% for card in player.hand %}
+                     <img src='{{ asset('img/cards_img/' ~ card ~ '.svg') }}' alt="card" width="90">
+                {% endfor %}<br/><br/>
+            {% endfor %}
+
+            {{ include('card/flash-message.html.twig') }}
         </div>
     </div>
 
-
 </div>
+
 
 {% endblock %}

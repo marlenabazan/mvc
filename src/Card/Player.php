@@ -2,7 +2,11 @@
 
 namespace App\Card;
 
-class Player
+class Player extends Hand
 {
-    
+
+    public function __construct()
+    {
+
+    }
 }

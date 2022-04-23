@@ -80,8 +80,8 @@ class CardController extends AbstractController
         SessionInterface $session
         ): Response
     {
-        $newDeck = new \App\Card\Deck();
-        $deck = $newDeck->getDeck();
+        $deck = new \App\Card\Deck();
+        $deck = $deck->getDeck();
         shuffle($deck);
 
         $draw = $request->request->get('draw');
@@ -127,8 +127,8 @@ class CardController extends AbstractController
         int $number
         ): Response
     {
-        $newDeck = new \App\Card\Deck();
-        $deck = $newDeck->getDeck();
+        $deck = new \App\Card\Deck();
+        $deck = $deck->getDeck();
         shuffle($deck);
 
         $card = $session->get("card") ?? null;
@@ -139,7 +139,7 @@ class CardController extends AbstractController
         $left = $session->get("left") ?? 52;
         $deck = $session->get("deck") ?? $deck;
 
-        $cards = [];
+        $cards = array();
 
         if ($draw) {
             for ($i = 1; $i <= $number; $i++) {
@@ -176,6 +176,75 @@ class CardController extends AbstractController
     }
 
     /**
+     * @Route("/card/deck/deal/{players}/{cards}", name="deal")
+     */
+    public function deal(
+        int $players,
+        int $cards,
+        SessionInterface $session,
+        Request $request,
+        ): Response
+    {
+        $deck = new \App\Card\Deck();
+        $deck = $deck->getDeck();
+        shuffle($deck);
+
+        $deal = $request->request->get('deal');
+        $clear = $request->request->get('clear');
+
+        $left = $session->get("left") ?? 52;
+        $deck = $session->get("deck") ?? $deck;
+
+        $listOfPlayers = array();
+
+        if ($deal) {
+            if (count($deck) >= ($cards * $players)) {
+                for ($i = 1; $i <= $players; $i++) {
+                    $player = new \App\Card\Player();
+                    $hand = new \App\Card\Hand();
+                    array_push($listOfPlayers, $player);
+
+                }
+                foreach ($listOfPlayers as $player) {
+                    for ($i = 1; $i <= $cards; $i++) {
+                        $card = array_shift($deck);
+                        array_push($player->hand, $card);
+                    }
+                }
+                // var_dump($listOfPlayers);
+
+                $left = count($deck);
+
+                $session->set("left", $left);
+                $session->set("deck", $deck);
+
+            } else {
+                $this->addFlash('warning', 'Not enough cards to deal.');
+            }
+        }elseif ($clear) {
+            $this->addFlash("warning", "You cleared the game.");
+
+            $left = 52;
+            $deck = new \App\Card\Deck();
+            $deck = $deck->getDeck();
+            shuffle($deck);
+
+            $session->set("left", 52);
+            $session->set("deck", $deck);
+            $session->set("card", null);
+        }
+
+        $this->addFlash('info', "You have $left cards left.");
+
+        $data = [
+            'title' => 'Deal',
+            'players' => $listOfPlayers,
+
+        ];
+        return $this->render('card/deal.html.twig', $data);
+    }
+
+    /**
      * @Route("/card/deck2", name="deck2")
      */
     public function deckWith2Jokers(): Response
@@ -189,6 +258,4 @@ class CardController extends AbstractController
         ];
         return $this->render('card/deck.html.twig', $data);
     }
-
-
 }
