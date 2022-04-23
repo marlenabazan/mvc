@@ -6,8 +6,7 @@ class Hand extends Deck
 {
     public $hand = array();
 
-    function __construct()
+    public function __construct()
     {
-
     }
 }

@@ -9,7 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
 class CardController extends AbstractController
 {
     /**
@@ -59,8 +58,7 @@ class CardController extends AbstractController
      */
     public function draw(
         SessionInterface $session
-        ): Response
-    {
+    ): Response {
         $card = $session->get("card") ?? 'back_card';
 
         $data = [
@@ -77,8 +75,7 @@ class CardController extends AbstractController
     public function drawProcess(
         Request $request,
         SessionInterface $session
-        ): Response
-    {
+    ): Response {
         $deck = new \App\Card\Deck();
         $deck = $deck->getDeck();
         shuffle($deck);
@@ -89,13 +86,11 @@ class CardController extends AbstractController
         $deck = $session->get("deck") ?? $deck;
         $card = $session->get("card") ?? null;
 
-
         if ($draw) {
             $card = array_shift($deck);
 
             $session->set("deck", $deck);
             $session->set("card", $card);
-
         } elseif ($clear) {
             $this->addFlash("warning", "You cleared the game.");
 
@@ -121,8 +116,7 @@ class CardController extends AbstractController
         Request $request,
         SessionInterface $session,
         int $number
-        ): Response
-    {
+    ): Response {
         $deck = new \App\Card\Deck();
         $deck = $deck->getDeck();
         shuffle($deck);
@@ -141,7 +135,6 @@ class CardController extends AbstractController
             }
 
             $session->set("deck", $deck);
-
         } elseif ($clear) {
             $this->addFlash("warning", "You cleared the game.");
 
@@ -173,8 +166,7 @@ class CardController extends AbstractController
         int $cards,
         SessionInterface $session,
         Request $request,
-        ): Response
-    {
+    ): Response {
         $deck = new \App\Card\Deck();
         $deck = $deck->getDeck();
         shuffle($deck);
@@ -192,7 +184,6 @@ class CardController extends AbstractController
                     $player = new \App\Card\Player();
                     $hand = new \App\Card\Hand();
                     array_push($listOfPlayers, $player);
-
                 }
                 foreach ($listOfPlayers as $player) {
                     for ($i = 1; $i <= $cards; $i++) {
@@ -203,7 +194,6 @@ class CardController extends AbstractController
                 // var_dump($listOfPlayers);
 
                 $session->set("deck", $deck);
-
             } else {
                 $this->addFlash("warning", "Not enough cards to deal.");
             }

@@ -4,14 +4,14 @@ namespace App\Card;
 
 class Card
 {
-    const COLOR1 = 'red';
-    const COLOR2 = 'black';
+    protected const COLOR1 = 'red';
+    protected const COLOR2 = 'black';
 
-    public $face;
-    public $suit;
-    public $color;
+    protected $face;
+    protected $suit;
+    protected $color;
 
-    function __construct($face='', $suit='', $color='')
+    public function __construct($face = '', $suit = '', $color = '')
     {
         $this->face = $face;
         $this->suit = $suit;

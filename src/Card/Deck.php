@@ -13,7 +13,7 @@ class Deck extends Card
         'S'
     );
 
-    protected $faces = array(
+    private $faces = array(
         '2',
         '3',
         '4',

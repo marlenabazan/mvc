@@ -4,7 +4,6 @@ namespace App\Card;
 
 class DeckWith2Jokers extends Deck
 {
-
     public function getDeckWithJokers()
     {
         $deck = Deck::getDeck();
