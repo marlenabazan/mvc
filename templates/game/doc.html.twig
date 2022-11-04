@@ -5,7 +5,34 @@
 {% block content %}
 
 <div class="container">
-    <h1>doc</h1>
+    
+    <div class="row mt-5 col-md-12">
+        <div class="col-sm-12 offset-1">
+            <h1>Game doc</h1>
+        </div>
+
+        <div class="col-sm-12 offset-8">
+            <a href="{{ url("game") }}">Go to game</a>
+        </div>
+        
+        <div class="col-sm-12 offset-1">
+            <h3>Flowchart</h3>
+            <img class="img-fluid" src="../img/Flodesdiagram.png" alt="diagram">
+        </div>
+    </div>
+
+    <div class="row mt-5 col-md-12">
+        <div class="col-sm-12 offset-1">
+            {{ include('game/pseudocode.markdown.twig')|markdown_to_html }}
+        </div>
+    </div>
+
+    <div class="row mt-5 col-md-12">
+        <div class="col-sm-12 offset-1">
+            {{ include('game/classes.markdown.twig')|markdown_to_html }}
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}
