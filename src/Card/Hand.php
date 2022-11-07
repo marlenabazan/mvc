@@ -8,5 +8,12 @@ class Hand extends Deck
 
     public function __construct()
     {
+        $this->hand = [];
+    }
+
+    public function addCard($card)
+    {
+        $this->hand[] = $card;
+        // array_push($this->hand, $card);
     }
 }

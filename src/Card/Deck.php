@@ -70,4 +70,9 @@ class Deck extends Card
         }
         return $this->deckStr;
     }
+
+    public function getValueFromFace($face)
+    {
+        return $this->face2Value[$face];
+    }
 }

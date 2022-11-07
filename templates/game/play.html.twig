@@ -5,7 +5,59 @@
 {% block content %}
 
 <div class="container">
-    <h1>play</h1>
+    <div class="row mt-5 col-md-12">
+        <div class="col-sm-2 offset-4">
+            <form method="post">
+                {% if lost or won %}
+                    <input type="submit" name="play" value="Play again">
+                {% else %}
+                    <input type="submit" name="play" value="Draw">
+                    <input type="submit" name="stop" value="Stop">
+                {% endif %}
+                
+                {{ include('card/flash-message.html.twig') }}
+            </form>
+        </div>
+        <div class="col-sm-2 ">
+            {% if card == 'back_card' %}
+            <img src='{{ asset('img/cards_img/card_back.svg') }}' alt="card" width="90">
+            {% else %}
+            <img src='{{ asset('img/cards_img/' ~ card ~ '.svg') }}' alt="card" width="90">
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-sm-6">
+        {% if playersScore %}
+            Your score: {{ playersScore }}
+        {% endif %}
+    </div>
+    <div class="col-sm-6">
+        {% if playersHand.hand %}
+            {% for card in playersHand.hand %}
+                <img src='{{ asset('img/cards_img/' ~ card ~ '.svg') }}' alt="card" width="90">
+            {% endfor %}<br/><br/>
+        {% endif %}
+    </div>
+    <div class="col-sm-6 offset-4">
+        {% if won %}
+            YOU WON :)
+        {% elseif lost %}
+            YOU LOST :(
+        {% endif %}<br/><br/>
+    </div>
+    <div class="col-sm-6">
+        {% if dealersScore %}
+            Dealers score: {{ dealersScore }}
+        {% endif %}
+    </div>
+    <div class="col-sm-6">
+        {% if dealersHand.hand %}
+            {% for card in dealersHand.hand %}
+                <img src='{{ asset('img/cards_img/' ~ card ~ '.svg') }}' alt="card" width="90">
+            {% endfor %}<br/><br/>
+        {% endif %}
+    </div>
+    
 </div>
 
 {% endblock %}

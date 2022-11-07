@@ -19,4 +19,9 @@ class Card
         $this->color = $color;
         $this->value = $value;
     }
+
+    public function getValue()
+    {
+        return $this->value;
+    }
 }
