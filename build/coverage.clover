@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1667950430">
-  <project timestamp="1667950430">
+<coverage generated="1667950936">
+  <project timestamp="1667950936">
     <file name="/Users/Marlena/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
@@ -73,13 +73,13 @@
     </file>
     <file name="/Users/Marlena/dbwebb-kurser/mvc/me/report/src/Card/Hand.php">
       <class name="App\Card\Hand" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="1" elements="4" coveredelements="2"/>
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
-      <line num="16" type="stmt" count="5"/>
-      <line num="19" type="method" name="addCard" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <metrics loc="24" ncloc="19" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="1" elements="4" coveredelements="2"/>
+      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="16" type="stmt" count="7"/>
+      <line num="19" type="method" name="addCard" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="21" type="stmt" count="1"/>
+      <metrics loc="24" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/Users/Marlena/dbwebb-kurser/mvc/me/report/src/Card/Player.php">
       <class name="App\Card\Player" namespace="global">
@@ -300,6 +300,6 @@
       </class>
       <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="12" loc="800" ncloc="639" classes="11" methods="36" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="191" coveredstatements="40" elements="227" coveredelements="59"/>
+    <metrics files="12" loc="800" ncloc="639" classes="11" methods="36" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="191" coveredstatements="41" elements="227" coveredelements="61"/>
   </project>
 </coverage>
