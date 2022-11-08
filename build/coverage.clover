@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1667950936">
-  <project timestamp="1667950936">
+<coverage generated="1667951402">
+  <project timestamp="1667951402">
     <file name="/Users/Marlena/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
@@ -75,8 +75,8 @@
       <class name="App\Card\Hand" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
-      <line num="16" type="stmt" count="7"/>
+      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="9"/>
+      <line num="16" type="stmt" count="9"/>
       <line num="19" type="method" name="addCard" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="21" type="stmt" count="1"/>
       <metrics loc="24" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
@@ -85,11 +85,11 @@
       <class name="App\Card\Player" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
       </class>
-      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
-      <line num="16" type="stmt" count="5"/>
-      <line num="17" type="stmt" count="5"/>
-      <line num="25" type="method" name="getPlayersHand" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="27" type="stmt" count="2"/>
+      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="16" type="stmt" count="7"/>
+      <line num="17" type="stmt" count="7"/>
+      <line num="25" type="method" name="getPlayersHand" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="27" type="stmt" count="3"/>
       <line num="35" type="method" name="emptyHand" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="37" type="stmt" count="1"/>
       <metrics loc="40" ncloc="26" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
