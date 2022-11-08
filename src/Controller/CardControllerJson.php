@@ -12,11 +12,12 @@ class CardControllerJson extends AbstractController
 {
     /**
      * @Route("/card/api/deck", name="deck-json")
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function deckJson(): Response
     {
         $deck = new \App\Card\Deck();
-        $deck = $deck->getDeck();
+        $deck = $deck->getDeckStr();
 
         $data = [
             'title' => 'Deck Json',

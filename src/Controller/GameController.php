@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use App\Card\Deck;
 
 class GameController extends AbstractController
 {
@@ -38,6 +37,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/play", name="game-play")
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function gamePlay(
         SessionInterface $session,
@@ -93,9 +93,9 @@ class GameController extends AbstractController
                 $won = true;
             } elseif ((21 - $dealersScore) < (21 - $playersScore)) {
                 $lost = true;
-            } else {
-                $won = true;
             }
+            $won = true;
+
             $session->clear();
         }
 

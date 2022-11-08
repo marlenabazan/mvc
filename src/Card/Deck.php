@@ -2,18 +2,42 @@
 
 namespace App\Card;
 
+use App\Card\Card;
+
 class Deck extends Card
 {
+    /**
+     * deck
+     *
+     * @var array<Card>
+     */
     protected $deck = array();
 
-    private $suits = array(
+    /**
+     * deckStr
+     *
+     * @var array<string>
+     */
+    protected $deckStr = array();
+
+    /**
+     * suits
+     *
+     * @var array<string>
+     */
+    private array $suits = array(
         'H',
         'D',
         'C',
         'S'
     );
 
-    private $faces = array(
+    /**
+     * faces
+     *
+     * @var array<string>
+     */
+    private array $faces = array(
         '2',
         '3',
         '4',
@@ -29,9 +53,23 @@ class Deck extends Card
         'A'
     );
 
-    private $suit2Color = array("H" => Card::COLOR1, "D" => Card::COLOR1, "C" => Card::COLOR2, "S" => Card::COLOR2);
+    /**
+     * suit2Color
+     *
+     * @var array<string>
+     */
+    private array $suit2Color = array(
+        "H" => Card::COLOR1,
+        "D" => Card::COLOR1,
+        "C" => Card::COLOR2,
+        "S" => Card::COLOR2);
 
-    private $face2Value = array(
+    /**
+     * face2Value
+     *
+     * @var array<int>
+     */
+    private array $face2Value = array(
         "2" => 2,
         "3" => 3,
         "4" => 4,
@@ -44,9 +82,13 @@ class Deck extends Card
         "J" => 11,
         "Q" => 12,
         "K" => 13,
-        "A" => 14
+        "A" => 1
     );
 
+    /**
+     * __construct
+     * @SuppressWarnings(PHPMD.MissingImport)
+     */
     public function __construct()
     {
         foreach ($this->suits as $suit) {
@@ -62,7 +104,12 @@ class Deck extends Card
         }
     }
 
-    public function getDeck()
+    /**
+     * getDeck
+     *
+     * @return array<string>
+     */
+    public function getDeckStr()
     {
         foreach ($this->deck as $card) {
             $oneCard = ($card->face . $card->suit);
@@ -71,6 +118,12 @@ class Deck extends Card
         return $this->deckStr;
     }
 
+    /**
+     * getValueFromFace
+     *
+     * @param string $face
+     * @return int
+     */
     public function getValueFromFace($face)
     {
         return $this->face2Value[$face];

@@ -25,24 +25,26 @@ class CardController extends AbstractController
 
     /**
      * @Route("/card/deck", name="deck")
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function deck(): Response
     {
         $deck = new \App\Card\Deck();
         $data = [
             'title' => 'Deck',
-            'deck' => $deck->getDeck(),
+            'deck' => $deck->getDeckStr(),
         ];
         return $this->render('card/deck.html.twig', $data);
     }
 
     /**
      * @Route("/card/deck/shuffle", name="shuffle")
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function shuffle(): Response
     {
         $deck = new \App\Card\Deck();
-        $deck = $deck->getDeck();
+        $deck = $deck->getDeckStr();
         shuffle($deck);
 
         $data = [
@@ -71,13 +73,14 @@ class CardController extends AbstractController
 
     /**
      * @Route("/card/deck/draw", name="draw-process", methods={"POST"})
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function drawProcess(
         Request $request,
         SessionInterface $session
     ): Response {
         $deck = new \App\Card\Deck();
-        $deck = $deck->getDeck();
+        $deck = $deck->getDeckStr();
         shuffle($deck);
 
         $draw = $request->request->get("draw");
@@ -95,7 +98,7 @@ class CardController extends AbstractController
             $this->addFlash("warning", "You cleared the game.");
 
             $deck = new \App\Card\Deck();
-            $deck = $deck->getDeck();
+            $deck = $deck->getDeckStr();
             shuffle($deck);
 
             $session->set("deck", $deck);
@@ -111,6 +114,7 @@ class CardController extends AbstractController
 
     /**
      * @Route("/card/deck/draw/{number}", name="draw-number-process", methods={"GET", "POST"})
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function drawNumber(
         Request $request,
@@ -118,7 +122,7 @@ class CardController extends AbstractController
         int $number
     ): Response {
         $deck = new \App\Card\Deck();
-        $deck = $deck->getDeck();
+        $deck = $deck->getDeckStr();
         shuffle($deck);
 
         $draw = $request->request->get("draw");
@@ -139,7 +143,7 @@ class CardController extends AbstractController
             $this->addFlash("warning", "You cleared the game.");
 
             $deck = new \App\Card\Deck();
-            $deck = $deck->getDeck();
+            $deck = $deck->getDeckStr();
             shuffle($deck);
 
             $session->set("deck", $deck);
@@ -160,6 +164,7 @@ class CardController extends AbstractController
 
     /**
      * @Route("/card/deck/deal/{players}/{cards}", name="deal")
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function deal(
         int $players,
@@ -168,7 +173,7 @@ class CardController extends AbstractController
         Request $request,
     ): Response {
         $deck = new \App\Card\Deck();
-        $deck = $deck->getDeck();
+        $deck = $deck->getDeckStr();
         shuffle($deck);
 
         $deal = $request->request->get("deal");
@@ -182,7 +187,7 @@ class CardController extends AbstractController
             if (count($deck) >= ($cards * $players)) {
                 for ($i = 1; $i <= $players; $i++) {
                     $player = new \App\Card\Player();
-                    $hand = new \App\Card\Hand();
+                    // $hand = new \App\Card\Hand();
                     array_push($listOfPlayers, $player);
                 }
                 foreach ($listOfPlayers as $player) {
@@ -194,14 +199,13 @@ class CardController extends AbstractController
                 // var_dump($listOfPlayers);
 
                 $session->set("deck", $deck);
-            } else {
-                $this->addFlash("warning", "Not enough cards to deal.");
             }
+            $this->addFlash("warning", "Not enough cards to deal.");
         } elseif ($clear) {
             $this->addFlash("warning", "You cleared the game.");
 
             $deck = new \App\Card\Deck();
-            $deck = $deck->getDeck();
+            $deck = $deck->getDeckStr();
             shuffle($deck);
 
             $session->set("deck", $deck);
@@ -222,6 +226,7 @@ class CardController extends AbstractController
 
     /**
      * @Route("/card/deck2", name="deck2")
+     * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function deckWith2Jokers(): Response
     {

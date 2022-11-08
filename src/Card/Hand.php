@@ -4,16 +4,20 @@ namespace App\Card;
 
 class Hand extends Deck
 {
-    public $hand = array();
+    /**
+     * hand
+     *
+     * @var array<string>
+     */
+    public array $hand = array();
 
     public function __construct()
     {
         $this->hand = [];
     }
 
-    public function addCard($card)
+    public function addCard(string $card): void
     {
         $this->hand[] = $card;
-        // array_push($this->hand, $card);
     }
 }

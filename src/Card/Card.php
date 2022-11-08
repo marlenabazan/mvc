@@ -7,12 +7,12 @@ class Card
     protected const COLOR1 = 'red';
     protected const COLOR2 = 'black';
 
-    protected $face;
-    protected $suit;
-    protected $color;
-    protected $value;
+    protected string $face;
+    protected string $suit;
+    protected string $color;
+    protected int $value;
 
-    public function __construct(int $value = 0, $face = '', $suit = '', $color = '')
+    public function __construct(int $value = 0, string $face = '', string $suit = '', string $color = '')
     {
         $this->face = $face;
         $this->suit = $suit;
@@ -20,7 +20,7 @@ class Card
         $this->value = $value;
     }
 
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
