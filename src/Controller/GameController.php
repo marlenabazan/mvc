@@ -93,8 +93,9 @@ class GameController extends AbstractController
                 $won = true;
             } elseif ((21 - $dealersScore) < (21 - $playersScore)) {
                 $lost = true;
+            } else {
+                $won = true;
             }
-            $won = true;
 
             $session->clear();
         }
