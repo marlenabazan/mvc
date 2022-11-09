@@ -11,7 +11,7 @@ class HandTest extends TestCase
 {
     /**
      * Construct hand object
-     * 
+     *
      */
     public function testCreateHand()
     {
@@ -21,7 +21,7 @@ class HandTest extends TestCase
 
     /**
      * Test add card to hand
-     * 
+     *
      */
     public function testAddCard()
     {

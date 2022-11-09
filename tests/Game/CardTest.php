@@ -11,7 +11,7 @@ class CardTest extends TestCase
 {
     /**
      * Construct card object with arguments and verify its value
-     * 
+     *
      */
     public function testCreateCard()
     {

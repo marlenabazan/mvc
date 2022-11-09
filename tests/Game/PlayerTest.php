@@ -11,7 +11,7 @@ class PlayerTest extends TestCase
 {
     /**
      * Construct player object
-     * 
+     *
      */
     public function testCreatePlayer()
     {
@@ -21,7 +21,7 @@ class PlayerTest extends TestCase
 
     /**
      * Test get players hand
-     * 
+     *
      */
     public function testGetPlayersHand()
     {

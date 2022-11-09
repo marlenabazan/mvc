@@ -11,7 +11,7 @@ class DeckTest extends TestCase
 {
     /**
      * Construct deck object, verify its string representation and value of one card
-     * 
+     *
      */
     public function testDeck()
     {

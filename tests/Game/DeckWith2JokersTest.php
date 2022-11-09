@@ -11,7 +11,7 @@ class DeckWith2JokersTest extends TestCase
 {
     /**
      *  DeckWith2Jokers object
-     * 
+     *
      */
     public function testCreateDeckWith2Jokers()
     {

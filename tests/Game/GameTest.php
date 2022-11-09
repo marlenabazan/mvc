@@ -11,7 +11,7 @@ class GameTest extends TestCase
 {
     /**
      * Construct game object
-     * 
+     *
      */
     public function testCreateGame()
     {
@@ -21,7 +21,7 @@ class GameTest extends TestCase
 
     /**
      * Test get deck
-     * 
+     *
      */
     public function testGetDeck()
     {
@@ -33,7 +33,7 @@ class GameTest extends TestCase
 
     /**
      * Test get player and dealer
-     * 
+     *
      */
     public function testGetPlayer()
     {
@@ -48,7 +48,7 @@ class GameTest extends TestCase
 
     /**
      * Test get players and dealers hand
-     * 
+     *
      */
     public function testGetPlayersHand()
     {
@@ -63,7 +63,7 @@ class GameTest extends TestCase
 
     /**
      * Test reset game
-     * 
+     *
      */
     public function testResetGame()
     {
