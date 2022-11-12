@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row mt-5 col-md-12">
+            <h2>Uppdatera en bok</h2>
+        </div>
+
+        <div class="row mt-5 col-md-12 form-group">
+            <form method="post">
+                <label for="title">Titel:</label><br>
+                <input type="text" class="form-control" id="title" name="title" value="{{book.title}}"><br>
+
+                <label for="author">Författare:</label><br>
+                <input type="text" class="form-control" id="author" name="author" value="{{book.author}}"><br>
+
+                <label for="ISBN">ISBN:</label><br>
+                <input type="text" class="form-control" id="ISBN" name="ISBN" value="{{book.ISBN}}"><br>
+
+                <label for="image">Bild:</label><br>
+                <input type="text" class="form-control" id="image" name="image" value="{{book.image}}"><br><br>
+
+                <input class="btn btn-outline-dark" type="submit" value="Spara">
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

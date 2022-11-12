@@ -23,6 +23,8 @@
                             <td><a href="{{ path("show-by-id", {id: book.id} ) }}">{{ book.title }}</a></td>
                             <td>{{ book.author }}</td>
                             <td>{{ book.ISBN }}</td>
+                            <td><a href="{{ path("update-by-id", {id: book.id} ) }}">Update</a> | 
+                                <a href="{{ path("delete-by-id", {id: book.id} ) }}">Delete</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

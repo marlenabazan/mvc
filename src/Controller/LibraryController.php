@@ -82,6 +82,12 @@ class LibraryController extends AbstractController
         $book = $booksRepository
             ->find($id);
 
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id ' . $id
+            );
+        }
+
         $image = $book->getImage();
 
         $data = [
@@ -111,6 +117,57 @@ class LibraryController extends AbstractController
 
         $entityManager->remove($book);
         $entityManager->flush();
+        
         return $this->redirectToRoute('library-show-all');
+    }
+
+    /**
+     * @Route("/library/update/{id}", name="update-by-id", methods={"GET"})
+     */
+    public function updateBookById(
+        ManagerRegistry $doctrine,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $book = $entityManager->getRepository(Books::class)->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id ' . $id
+            );
+        }
+
+        $data = [
+            'title' => 'Update',
+            'book' => $book
+        ];
+
+        return $this->render('library/update.html.twig', $data);
+    }
+
+    /**
+     * @Route("/library/update/{id}", name="update-process", methods={"POST"})
+     */
+    public function updateBookHandler(
+        BooksRepository $booksRepository,
+        ManagerRegistry $doctrine,
+        Request $request,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+
+        $book = $booksRepository
+            ->find($id);
+
+        $book->setTitle($request->request->get('title'));
+        $book->setAuthor($request->request->get('author'));
+        $book->setISBN($request->request->get('ISBN'));
+        $book->setImage($request->request->get('image'));
+
+        $entityManager->persist($book);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('show-by-id', ["id" => $id]);
     }
 }
