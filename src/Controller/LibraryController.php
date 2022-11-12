@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-
 use App\Entity\Books;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\BooksRepository;
@@ -21,10 +20,11 @@ class LibraryController extends AbstractController
         ]);
     }
 
-     /**
-     * @Route("/library/create", name="library-create", methods={"GET"})
-     */
-    public function createBook(): Response {
+    /**
+    * @Route("/library/create", name="library-create", methods={"GET"})
+    */
+    public function createBook(): Response
+    {
         $data = [
             'title' => 'Create',
         ];
@@ -49,7 +49,7 @@ class LibraryController extends AbstractController
         $book->setImage($request->request->get('image'));
 
         $entityManager->persist($book);
- 
+
         $entityManager->flush();
 
         return $this->redirectToRoute('library-show-all');
@@ -73,18 +73,18 @@ class LibraryController extends AbstractController
     }
 
     /**
-     * @Route("/library/show/{id}", name="show-by-id")
+     * @Route("/library/show/{bookId}", name="show-by-id")
      */
     public function showBookById(
         BooksRepository $booksRepository,
-        int $id
+        int $bookId
     ): Response {
         $book = $booksRepository
-            ->find($id);
+            ->find($bookId);
 
         if (!$book) {
             throw $this->createNotFoundException(
-                'No book found for id ' . $id
+                'No book found for id ' . $bookId
             );
         }
 
@@ -95,45 +95,45 @@ class LibraryController extends AbstractController
             'book' => $book,
             'image' => $image
         ];
-    
+
         return $this->render('library/show-one-book.html.twig', $data);
     }
 
     /**
-     * @Route("/library/delete/{id}", name="delete-by-id")
+     * @Route("/library/delete/{bookId}", name="delete-by-id")
      */
     public function deleteBookById(
         ManagerRegistry $doctrine,
-        int $id
+        int $bookId
     ): Response {
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Books::class)->find($id);
+        $book = $entityManager->getRepository(Books::class)->find($bookId);
 
         if (!$book) {
             throw $this->createNotFoundException(
-                'No book found for id ' . $id
+                'No book found for id ' . $bookId
             );
         }
 
         $entityManager->remove($book);
         $entityManager->flush();
-        
+
         return $this->redirectToRoute('library-show-all');
     }
 
     /**
-     * @Route("/library/update/{id}", name="update-by-id", methods={"GET"})
+     * @Route("/library/update/{bookId}", name="update-by-id", methods={"GET"})
      */
     public function updateBookById(
         ManagerRegistry $doctrine,
-        int $id
+        int $bookId
     ): Response {
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Books::class)->find($id);
+        $book = $entityManager->getRepository(Books::class)->find($bookId);
 
         if (!$book) {
             throw $this->createNotFoundException(
-                'No book found for id ' . $id
+                'No book found for id ' . $bookId
             );
         }
 
@@ -146,18 +146,18 @@ class LibraryController extends AbstractController
     }
 
     /**
-     * @Route("/library/update/{id}", name="update-process", methods={"POST"})
+     * @Route("/library/update/{bookId}", name="update-process", methods={"POST"})
      */
     public function updateBookHandler(
         BooksRepository $booksRepository,
         ManagerRegistry $doctrine,
         Request $request,
-        int $id
+        int $bookId
     ): Response {
         $entityManager = $doctrine->getManager();
 
         $book = $booksRepository
-            ->find($id);
+            ->find($bookId);
 
         $book->setTitle($request->request->get('title'));
         $book->setAuthor($request->request->get('author'));
@@ -168,6 +168,6 @@ class LibraryController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->redirectToRoute('show-by-id', ["id" => $id]);
+        return $this->redirectToRoute('show-by-id', ["bookId" => $bookId]);
     }
 }

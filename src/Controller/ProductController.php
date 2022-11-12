@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\ProductRepository;
@@ -39,7 +38,7 @@ class ProductController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return new Response('Saved new product with id '.$product->getId());
+        return new Response('Saved new product with id ' . $product->getId());
     }
 
     /**
@@ -55,31 +54,31 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/show/{id}", name="product_by_id")
+     * @Route("/product/show/{productId}", name="product_by_id")
      */
     public function showProductById(
         ProductRepository $productRepository,
-        int $id
+        int $productId
     ): Response {
         $product = $productRepository
-            ->find($id);
+            ->find($productId);
 
         return $this->json($product);
     }
 
     /**
-     * @Route("/product/delete/{id}", name="product_delete_by_id")
+     * @Route("/product/delete/{productId}", name="product_delete_by_id")
      */
     public function deleteProductById(
         ManagerRegistry $doctrine,
-        int $id
+        int $productId
     ): Response {
         $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(Product::class)->find($id);
+        $product = $entityManager->getRepository(Product::class)->find($productId);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No product found for id ' . $productId
             );
         }
 
@@ -90,19 +89,19 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/update/{id}/{value}", name="product_update")
+     * @Route("/product/update/{productId}/{value}", name="product_update")
      */
     public function updateProduct(
         ManagerRegistry $doctrine,
-        int $id,
+        int $productId,
         int $value
     ): Response {
         $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(Product::class)->find($id);
+        $product = $entityManager->getRepository(Product::class)->find($productId);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No product found for id ' . $productId
             );
         }
 

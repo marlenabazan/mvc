@@ -20,15 +20,18 @@
                     {% for book in books %}
                         <tr>
                             <th scope="row">{{ book.id }}</th>
-                            <td><a href="{{ path("show-by-id", {id: book.id} ) }}">{{ book.title }}</a></td>
+                            <td><a href="{{ path("show-by-id", {bookId: book.id} ) }}">{{ book.title }}</a></td>
                             <td>{{ book.author }}</td>
                             <td>{{ book.ISBN }}</td>
-                            <td><a href="{{ path("update-by-id", {id: book.id} ) }}">Update</a> | 
-                                <a href="{{ path("delete-by-id", {id: book.id} ) }}">Delete</a></td>
+                            <td><a href="{{ path("update-by-id", {bookId: book.id} ) }}">Update</a> | 
+                                <a href="{{ path("delete-by-id", {bookId: book.id} ) }}">Delete</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
+        <div class="row mt-5 col-md-12">
+            <a href="{{ url("library-create") }}">Lägg till en bok</a><br>
         </div>
     </div>
 
