@@ -93,4 +93,24 @@ class LibraryController extends AbstractController
         return $this->render('library/show-one-book.html.twig', $data);
     }
 
+    /**
+     * @Route("/library/delete/{id}", name="delete-by-id")
+     */
+    public function deleteBookById(
+        ManagerRegistry $doctrine,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $book = $entityManager->getRepository(Books::class)->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id ' . $id
+            );
+        }
+
+        $entityManager->remove($book);
+        $entityManager->flush();
+        return $this->redirectToRoute('library-show-all');
+    }
 }
