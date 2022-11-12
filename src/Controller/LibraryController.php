@@ -52,7 +52,7 @@ class LibraryController extends AbstractController
  
         $entityManager->flush();
 
-        return $this->redirectToRoute('library');
+        return $this->redirectToRoute('library-show-all');
     }
 
     /**
@@ -64,7 +64,12 @@ class LibraryController extends AbstractController
         $books = $booksRepository
             ->findAll();
 
-        return $this->json($books);
+        $data = [
+            'title' => 'All Books',
+            'books' => $books,
+        ];
+
+        return $this->render('library/show-all.html.twig', $data);
     }
 
     /**
