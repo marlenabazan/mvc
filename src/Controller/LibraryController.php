@@ -21,18 +21,6 @@ class LibraryController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/library/show", name="library-show-all")
-     */
-    public function showAllBooks(
-        BooksRepository $booksRepository
-    ): Response {
-        $books = $booksRepository
-            ->findAll();
-
-        return $this->json($books);
-    }
-
      /**
      * @Route("/library/create", name="library-create", methods={"GET"})
      */
@@ -41,7 +29,7 @@ class LibraryController extends AbstractController
             'title' => 'Create',
         ];
 
-        return $this->render('library/addBookForm.html.twig', $data);
+        return $this->render('library/add-book-form.html.twig', $data);
     }
 
     /**
@@ -65,6 +53,39 @@ class LibraryController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('library');
+    }
+
+    /**
+     * @Route("/library/show", name="library-show-all")
+     */
+    public function showAllBooks(
+        BooksRepository $booksRepository
+    ): Response {
+        $books = $booksRepository
+            ->findAll();
+
+        return $this->json($books);
+    }
+
+    /**
+     * @Route("/library/show/{id}", name="show-by-id")
+     */
+    public function showBookById(
+        BooksRepository $booksRepository,
+        int $id
+    ): Response {
+        $book = $booksRepository
+            ->find($id);
+
+        $image = $book->getImage();
+
+        $data = [
+            'title' => 'One Book',
+            'book' => $book,
+            'image' => $image
+        ];
+    
+        return $this->render('library/show-one-book.html.twig', $data);
     }
 
 }

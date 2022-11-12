@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row mt-5 col-md-12">
+            <div class="col-sm-3 offset-1">
+                <img src='{{ asset('img/books/' ~ image ~ '') }}' alt="book-image" width="190">
+            </div>
+
+            <div class="col-md-7">
+                <h2>{{ book.title }}</h2> <br>
+                <h4>{{ book.author }}</h4> <br>
+                ISBN: {{ book.ISBN }}
+            </div>
+        </div>
+
+        <div class="row mt-5 col-md-12 offset-1">
+            <a href="{{ url("library-show-all") }}">Tillbaka</a><br>
+        </div>
+
+    </div>
+
+{% endblock %}
