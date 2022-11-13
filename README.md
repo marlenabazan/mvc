@@ -1,5 +1,5 @@
-[![Build Status](https://scrutinizer-ci.com/g/marlenabazan/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/marlenabazan/mvc/build-status/main)
+# MVC
 
-[![Code Coverage](https://scrutinizer-ci.com/g/marlenabazan/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/marlenabazan/mvc/?branch=main)
+Report page for MVC course.
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/marlenabazan/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/marlenabazan/mvc/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/marlenabazan/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/marlenabazan/mvc/build-status/main) [![Code Coverage](https://scrutinizer-ci.com/g/marlenabazan/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/marlenabazan/mvc/?branch=main) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/marlenabazan/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/marlenabazan/mvc/?branch=main)
