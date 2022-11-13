@@ -1,0 +1,17 @@
+#### Phpmetrics
+
+Phpmetrics rapporten visar några svaga punkter i min kod. 
+
+Om vi tittar på *complexity* så två av mina klasser har komplixiteten på nivå högre än 10. Dvs. CardController (17) och GameController (13). Annars genomsnitt komplixiteten på mina klasser är 3,22 vilket tycker jag är ganska bra. 
+
+<img src='{{ asset('img/metrics/complexity.png') }}' alt="complexity" width="100%">
+
+
+<br>Värdena från *coupling* rapport visar att bästa coupling (0) har Dice-klassen. Den använder ingen annan klass och används inte heller av andra klasser. Den har bästa resultat eftersom den inte behövs i koden alls. De flesta klasser har låg coupling mellan 1 och 3. Den högsta coupling har CardController vilken beror på 8 andra klasser.
+
+<img src='{{ asset('img/metrics/coupling.png') }}' alt="coupling" width="100%">
+
+
+<br>Mitt genomsnitt *cohesion* är 1,17 vilket är ett mycket bra resultat med tanke att det mest önskade värdet är 1. Jag tror inte att någonting behöver förbättras här.
+
+<img src='{{ asset('img/metrics/cohesion.png') }}' alt="cohesion" width="100%">

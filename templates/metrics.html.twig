@@ -10,13 +10,22 @@
     </div>
 
     <div class="row mt-5 col-sm-8 offset-1">
-        {# <h4>Introduktion</h4> #}
         {{ include('metrics/introduction.markdown.twig')|markdown_to_html }}
     </div>
 
     <div class="row mt-5 col-sm-8 offset-1">
-        <h4>Phpmetrics</h4>
+        {{ include('metrics/phpmetrics.markdown.twig')|markdown_to_html }}
     </div>
+
+    <div class="row mt-5 col-md-8 offset-1">
+        <div class="col-sm-7">
+            {{ include('metrics/maintainability.markdown.twig')|markdown_to_html }}
+         </div>
+        <div class="col-sm-5">
+            <img src='{{ asset('img/metrics/maintainability.png') }}' alt="complexity" width="100%">
+        </div>
+    </div>
+
 
     <div class="row mt-5 col-sm-8 offset-1">
         <h4>Scrutinizer</h4>
