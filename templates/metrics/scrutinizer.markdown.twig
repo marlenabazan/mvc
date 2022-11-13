@@ -1,0 +1,8 @@
+#### Scrutinizer
+
+Här kommer *Scrutinizers* bedömning av min kod. 6,19 - inte illa men fortfarande gul. Mycket låg kodtäckning på endast 16% också. Dock tror jag inte att de värdena är mycket pålitliga för att bedöma min kod eftersom det finns många klasser som jag inte skrivit och som rankades jättelågt. Komplexiteten skiljer sig lite från PhpMetrics rapport. Den största skillnaden är i LibraryController - PhpMetrics visar komplexiteten 4 och Scrutinizer 11. Det finns också ett intressant mätvärde som heter CRAP. Det indikerar hur många tester måste man skriva för att metoden ska få högre betyg. Vi kan tydligt se att GameController::gamePlay() och CardController::deal() är sämst rankade.
+
+De tre huvudsakliga sakerna som rapporten säger skulle kunna förbättras är: kodtäckning, komplexitet på Card-, Library- och GameController och CRAP på dem två metoderna ovan.
+
+<img src='{{ asset('img/metrics/crap.png') }}' alt="crap" width="100%">
+
