@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /Users/Marlena/dbwebb-kurser/mvc/me/report/src/Card</title>
+  <title>Dashboard for /Users/Marlena/dbwebb-kurser/mvc/me/report/src/Repository</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
       <nav aria-label="breadcrumb">
        <ol class="breadcrumb">
          <li class="breadcrumb-item"><a href="../index.html">/Users/Marlena/dbwebb-kurser/mvc/me/report/src</a></li>
-         <li class="breadcrumb-item"><a href="index.html">Card</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Repository</a></li>
          <li class="breadcrumb-item active">(Dashboard)</li>
 
        </ol>
@@ -58,6 +58,8 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="ProductRepository.php.html#17">App\Repository\ProductRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BooksRepository.php.html#17">App\Repository\BooksRepository</a></td><td class="text-right">14%</td></tr>
 
        </tbody>
       </table>
@@ -74,6 +76,8 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="ProductRepository.php.html#17">App\Repository\ProductRepository</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="BooksRepository.php.html#17">App\Repository\BooksRepository</a></td><td class="text-right">20</td></tr>
 
        </tbody>
       </table>
@@ -111,6 +115,11 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="BooksRepository.php.html#28"><abbr title="App\Repository\BooksRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BooksRepository.php.html#40"><abbr title="App\Repository\BooksRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductRepository.php.html#19"><abbr title="App\Repository\ProductRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductRepository.php.html#28"><abbr title="App\Repository\ProductRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductRepository.php.html#40"><abbr title="App\Repository\ProductRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
 
        </tbody>
       </table>
@@ -127,6 +136,10 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="BooksRepository.php.html#28"><abbr title="App\Repository\BooksRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="BooksRepository.php.html#40"><abbr title="App\Repository\BooksRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProductRepository.php.html#28"><abbr title="App\Repository\ProductRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProductRepository.php.html#40"><abbr title="App\Repository\ProductRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
 
        </tbody>
       </table>
@@ -155,7 +168,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,6], "Class Coverage"))
+      .datum(getCoverageDistributionData([1,0,1,0,0,0,0,0,0,0,0,0], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -173,7 +186,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,18], "Method Coverage"))
+      .datum(getCoverageDistributionData([5,0,0,0,0,0,0,0,0,0,0,1], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -223,7 +236,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[100,2,"<a href=\"Card.php.html#5\">App\\Card\\Card<\/a>"],[100,6,"<a href=\"Deck.php.html#7\">App\\Card\\Deck<\/a>"],[100,1,"<a href=\"DeckWith2Jokers.php.html#5\">App\\Card\\DeckWith2Jokers<\/a>"],[100,7,"<a href=\"Game.php.html#13\">App\\Card\\Game<\/a>"],[100,2,"<a href=\"Hand.php.html#5\">App\\Card\\Hand<\/a>"],[100,3,"<a href=\"Player.php.html#5\">App\\Card\\Player<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[14.285714285714285,5,"<a href=\"BooksRepository.php.html#17\">App\\Repository\\BooksRepository<\/a>"],[0,5,"<a href=\"ProductRepository.php.html#17\">App\\Repository\\ProductRepository<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -247,7 +260,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,1,"<a href=\"Card.php.html#15\">App\\Card\\Card::__construct<\/a>"],[100,1,"<a href=\"Card.php.html#23\">App\\Card\\Card::getValue<\/a>"],[100,3,"<a href=\"Deck.php.html#92\">App\\Card\\Deck::__construct<\/a>"],[100,2,"<a href=\"Deck.php.html#112\">App\\Card\\Deck::getDeckStr<\/a>"],[100,1,"<a href=\"Deck.php.html#127\">App\\Card\\Deck::getValueFromFace<\/a>"],[100,1,"<a href=\"DeckWith2Jokers.php.html#12\">App\\Card\\DeckWith2Jokers::getDeckWithJokers<\/a>"],[100,1,"<a href=\"Game.php.html#23\">App\\Card\\Game::__construct<\/a>"],[100,1,"<a href=\"Game.php.html#35\">App\\Card\\Game::getDeck<\/a>"],[100,1,"<a href=\"Game.php.html#48\">App\\Card\\Game::getPlayer<\/a>"],[100,1,"<a href=\"Game.php.html#58\">App\\Card\\Game::getDealer<\/a>"],[100,1,"<a href=\"Game.php.html#68\">App\\Card\\Game::getPlayersHand<\/a>"],[100,1,"<a href=\"Game.php.html#78\">App\\Card\\Game::getDealersHand<\/a>"],[100,1,"<a href=\"Game.php.html#88\">App\\Card\\Game::resetGame<\/a>"],[100,1,"<a href=\"Hand.php.html#14\">App\\Card\\Hand::__construct<\/a>"],[100,1,"<a href=\"Hand.php.html#19\">App\\Card\\Hand::addCard<\/a>"],[100,1,"<a href=\"Player.php.html#14\">App\\Card\\Player::__construct<\/a>"],[100,1,"<a href=\"Player.php.html#25\">App\\Card\\Player::getPlayersHand<\/a>"],[100,1,"<a href=\"Player.php.html#35\">App\\Card\\Player::emptyHand<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"BooksRepository.php.html#19\">App\\Repository\\BooksRepository::__construct<\/a>"],[0,2,"<a href=\"BooksRepository.php.html#28\">App\\Repository\\BooksRepository::add<\/a>"],[0,2,"<a href=\"BooksRepository.php.html#40\">App\\Repository\\BooksRepository::remove<\/a>"],[0,1,"<a href=\"ProductRepository.php.html#19\">App\\Repository\\ProductRepository::__construct<\/a>"],[0,2,"<a href=\"ProductRepository.php.html#28\">App\\Repository\\ProductRepository::add<\/a>"],[0,2,"<a href=\"ProductRepository.php.html#40\">App\\Repository\\ProductRepository::remove<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);

@@ -26,11 +26,6 @@
         </div>
     </div>
 
-
-    {# <div class="row mt-5 col-sm-8 offset-1">
-        {{ include('metrics/scrutinizer.markdown.twig')|markdown_to_html }}
-    </div> #}
-
     <div class="row mt-5 col-md-8 offset-1">
         <div class="col-sm-7">
             {{ include('metrics/scrutinizer.markdown.twig')|markdown_to_html }}
@@ -42,7 +37,7 @@
     </div>
 
     <div class="row mt-5 col-sm-8 offset-1">
-        <h4>Förbättringar</h4>
+        {{ include('metrics/improvements.markdown.twig')|markdown_to_html }}
     </div>
     
     <div class="row mt-5 col-sm-8 offset-1">

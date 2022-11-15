@@ -22,9 +22,7 @@ class Game extends Deck
      */
     public function __construct()
     {
-        $this->deck = new \App\Card\Deck();
-        $this->deck = $this->deck->getDeckStr();
-        shuffle($this->deck);
+        $this->deck = $this->getDeck();
         $this->player = new \App\Card\Player();
         $this->dealer = new \App\Card\Player();
     }
@@ -36,6 +34,9 @@ class Game extends Deck
      */
     public function getDeck()
     {
+        $this->deck = new \App\Card\Deck();
+        $this->deck = $this->deck->getDeckStr();
+        shuffle($this->deck);
         return $this->deck;
     }
 

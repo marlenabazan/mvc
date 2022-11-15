@@ -36,7 +36,7 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/game/play", name="game-play")
+     * @Route("/game/play", name="game-play", methods={"GET", "POST"})
      * @SuppressWarnings(PHPMD.MissingImport)
      */
     public function gamePlay(
