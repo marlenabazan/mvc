@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1668477482">
-  <project timestamp="1668477482">
+<coverage generated="1668479214">
+  <project timestamp="1668479214">
     <file name="/Users/Marlena/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
@@ -377,17 +377,17 @@
     </file>
     <file name="/Users/Marlena/dbwebb-kurser/mvc/me/report/src/Controller/ReportController.php">
       <class name="App\Controller\ReportController" namespace="global">
-        <metrics complexity="4" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="8" coveredelements="0"/>
+        <metrics complexity="4" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
       </class>
       <line num="15" type="method" name="home" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="17" type="stmt" count="0"/>
-      <line num="23" type="method" name="about" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="31" type="method" name="report" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="39" type="method" name="metrics" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="41" type="stmt" count="0"/>
-      <metrics loc="44" ncloc="32" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="8" coveredelements="0"/>
+      <line num="23" type="method" name="about" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="31" type="method" name="report" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="39" type="method" name="metrics" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="41" type="stmt" count="1"/>
+      <metrics loc="44" ncloc="32" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
     </file>
     <file name="/Users/Marlena/dbwebb-kurser/mvc/me/report/src/Dice/Dice.php">
       <class name="App\Dice\Dice" namespace="global">
@@ -486,6 +486,6 @@
       <line num="44" type="stmt" count="0"/>
       <metrics loc="77" ncloc="36" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
     </file>
-    <metrics files="18" loc="1385" ncloc="1100" classes="17" methods="71" coveredmethods="35" conditionals="0" coveredconditionals="0" statements="306" coveredstatements="179" elements="377" coveredelements="214"/>
+    <metrics files="18" loc="1385" ncloc="1100" classes="17" methods="71" coveredmethods="38" conditionals="0" coveredconditionals="0" statements="306" coveredstatements="182" elements="377" coveredelements="220"/>
   </project>
 </coverage>
