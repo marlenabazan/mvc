@@ -41,7 +41,7 @@
     </div>
     
     <div class="row mt-5 col-sm-8 offset-1">
-        <h4>Diskussion</h4>
+        {{ include('metrics/discussion.markdown.twig')|markdown_to_html }}
     </div>
 
 </div>
