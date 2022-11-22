@@ -40,31 +40,36 @@ class ProjectController extends AbstractController
         ): Response
     {
         $numbersMothers = $maternalMortalityRepository->findAll();
+        var_dump($numbersMothers);
         $chartMothers = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chartM = new ChartMothers($numbersMothers);
         $chartM->setChart($chartMothers);
-        $readDataMothers = new ReadData();
-        $readDataMothers->removeEntity($doctrine, $numbersMothers);
-        $readDataMothers->addDataMothers($doctrine);
+        // $readDataMothers = new ReadData();
+        // $readDataMothers->removeEntity($doctrine, $numbersMothers);
+        // $readDataMothers->addDataMothers($doctrine);
         // print_r($chartM);
 
         $numbersChildren = $childrenRepository->findAll();
+        var_dump($numbersChildren);
+
         $chartChildren = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chartCh = new ChartChildren($numbersChildren);
         $chartCh->setChart($chartChildren);
-        $readDataChildren = new ReadData();
-        $readDataChildren->removeEntity($doctrine, $numbersChildren);
-        $readDataChildren->addDataChildren($doctrine);
+        // $readDataChildren = new ReadData();
+        // $readDataChildren->removeEntity($doctrine, $numbersChildren);
+        // $readDataChildren->addDataChildren($doctrine);
         // print_r($chartCh);
 
         $numbersChildrenPer1000 = $childrenPer1000Repository->findAll();
+        var_dump($numbersChildrenPer1000);
+
         $chartChildrenPer1000 = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chartCh1000 = new ChartChildrenPer1000($numbersChildrenPer1000);
         $chartCh1000->setChart($chartChildrenPer1000);
-        $readDataChildrenPer1000 = new ReadData();
-        $readDataChildrenPer1000->removeEntity($doctrine, $numbersChildrenPer1000);
-        $readDataChildrenPer1000->addDataChildrenPer1000($doctrine);
-        print_r($chartCh1000);
+        // $readDataChildrenPer1000 = new ReadData();
+        // $readDataChildrenPer1000->removeEntity($doctrine, $numbersChildrenPer1000);
+        // $readDataChildrenPer1000->addDataChildrenPer1000($doctrine);
+        // print_r($chartCh1000);
 
         $data = [
             'chartMothers' => $chartMothers,
@@ -81,5 +86,31 @@ class ProjectController extends AbstractController
     public function aboutProject(): Response
     {
         return $this->render('project/about-project.html.twig');
+    }
+
+    /**
+     * @Route("/proj/reset", name="reset")
+     */
+    public function resetDatabase(
+        ManagerRegistry $doctrine,
+        MaternalMortalityRepository $maternalMortalityRepository,
+        ChildrenRepository $childrenRepository,
+        ChildrenPer1000Repository $childrenPer1000Repository
+    ): Response
+    {
+        $readData = new ReadData();
+        $numbersMothers = $maternalMortalityRepository->findAll();
+        $numbersChildren = $childrenRepository->findAll();
+        $numbersChildrenPer1000 = $childrenPer1000Repository->findAll();
+
+        $readData->removeEntity($doctrine, $numbersMothers);
+        $readData->removeEntity($doctrine, $numbersChildren);
+        $readData->removeEntity($doctrine, $numbersChildrenPer1000);
+
+        $readData->addDataMothers($doctrine);
+        $readData->addDataChildren($doctrine);
+        $readData->addDataChildrenPer1000($doctrine);
+
+        return $this->redirectToRoute('project');
     }
 }
