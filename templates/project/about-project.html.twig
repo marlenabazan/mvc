@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5 col-sm-8 offset-2">
+        {{ include('project/text/about.markdown.twig')|markdown_to_html }}
+    </div>
+</div>
+
+
+{% endblock %}
