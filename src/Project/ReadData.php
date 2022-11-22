@@ -6,6 +6,8 @@ use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
 
 use App\Entity\MaternalMortality;
+use App\Entity\Children;
+
 use App\Repository\MaternalMortalityRepository;
 
 use Doctrine\Persistence\ManagerRegistry;
@@ -66,35 +68,34 @@ class ReadData {
             $entityManager->flush();
             // var_dump($chart1);
         }
+    }
 
-        // $rowNo = 1;
-        // // $fp is file pointer to file sample.csv
-        // if (($fp = fopen("../data/maternal-mortality.csv", "r")) !== FALSE) {
-        // while (($row = fgetcsv($fp, 1000, ",")) !== FALSE) {
-        // $num = count($row);
+    public function addDataChildren(
+        // MaternalMortalityRepository $maternalMortalityRepository,
+        ManagerRegistry $doctrine,
+    ) {
 
-        // // echo "<p> $num fields in line $rowNo: <br /></p>\n";
-        // $rowNo++;
+        $numbers = $this->readData("../data/children.csv");
 
-        // for ($c=0; $c < $num; $c++) {
-        //     $chart1->setYear($row[$c]);
-        //     // echo "row[c]" . $row[$c] . "<br />\n";
-        //     $c++;
-        //     $chart1->setMaternalMortality($row[$c]);
-        // }
+        // $entityManager = $doctrine->getManager();
 
-        // }
-        // fclose($fp);
-        // }
+        for ($c=0; $c < count($numbers); $c++) {
+            $entityManager = $doctrine->getManager();
 
+            $chartChildren = new Children();
+            // echo $numbers[$c];
+            $chartChildren->setYear($numbers[$c]);
+            $c++;
+            $chartChildren->setNeonatal($numbers[$c]);
+            $c++;
+            $chartChildren->setInfant($numbers[$c]);
+            $c++;
+            $chartChildren->setUnder5($numbers[$c]);
 
+            $entityManager->persist($chartChildren);
 
-
-        // var_dump($chart1);
-
-        // $entityManager->persist($chart1);
-
-        // $entityManager->flush();
-        // return $chart1;
+            $entityManager->flush();
+            // var_dump($chart1);
+        }
     }
 }

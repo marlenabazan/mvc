@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\MaternalMortality;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\MaternalMortalityRepository;
+use App\Repository\ChildrenRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,8 @@ use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
 
 use App\Project\ChartMothers;
+use App\Project\ChartChildren;
+
 use App\Project\ReadData;
 
 
@@ -27,22 +30,31 @@ class ProjectController extends AbstractController
     public function project(
         ChartBuilderInterface $chartBuilder,
         ManagerRegistry $doctrine,
-        MaternalMortalityRepository $maternalMortalityRepository
+        MaternalMortalityRepository $maternalMortalityRepository,
+        ChildrenRepository $childrenRepository
         ): Response
     {
-
-        $numbers = $maternalMortalityRepository->findAll();
+        $numbersMothers = $maternalMortalityRepository->findAll();
         $chartMothers = $chartBuilder->createChart(Chart::TYPE_LINE);
-        $chart1 = new ChartMothers($numbers);
-        $chart1->setChart($chartMothers);
-        $testRead = new ReadData();
-        $testRead->removeEntity($doctrine, $numbers);
-        $testRead->addDataMothers($doctrine);
-        print_r($chart1);
+        $chartM = new ChartMothers($numbersMothers);
+        $chartM->setChart($chartMothers);
+        $readDataMothers = new ReadData();
+        $readDataMothers->removeEntity($doctrine, $numbersMothers);
+        $readDataMothers->addDataMothers($doctrine);
+        print_r($chartM);
+
+        $numbersChildren = $childrenRepository->findAll();
+        $chartChildren = $chartBuilder->createChart(Chart::TYPE_LINE);
+        $chartCh = new ChartChildren($numbersChildren);
+        $chartCh->setChart($chartChildren);
+        $readDataChildren = new ReadData();
+        $readDataChildren->removeEntity($doctrine, $numbersChildren);
+        $readDataChildren->addDataChildren($doctrine);
+        print_r($chartCh);
 
         $data = [
-            'chart' => $chartMothers,
-            // 'testRead' => $testRead
+            'chartMothers' => $chartMothers,
+            'chartChildren' => $chartChildren
         ];
 
         return $this->render('project/project.html.twig', $data);

@@ -39,9 +39,4 @@ class ChartMothers
             ],
         ]);
     }
-
-    public function getMaternalMortality(): ?int
-    {
-        return $this->maternalMortality;
-    }
 }
