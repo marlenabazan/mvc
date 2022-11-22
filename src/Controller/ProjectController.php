@@ -7,6 +7,8 @@ use App\Entity\MaternalMortality;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\MaternalMortalityRepository;
 use App\Repository\ChildrenRepository;
+use App\Repository\ChildrenPer1000Repository;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +20,8 @@ use Symfony\UX\Chartjs\Model\Chart;
 
 use App\Project\ChartMothers;
 use App\Project\ChartChildren;
+use App\Project\ChartChildrenPer1000;
+
 
 use App\Project\ReadData;
 
@@ -31,7 +35,8 @@ class ProjectController extends AbstractController
         ChartBuilderInterface $chartBuilder,
         ManagerRegistry $doctrine,
         MaternalMortalityRepository $maternalMortalityRepository,
-        ChildrenRepository $childrenRepository
+        ChildrenRepository $childrenRepository,
+        ChildrenPer1000Repository $childrenPer1000Repository
         ): Response
     {
         $numbersMothers = $maternalMortalityRepository->findAll();
@@ -41,7 +46,7 @@ class ProjectController extends AbstractController
         $readDataMothers = new ReadData();
         $readDataMothers->removeEntity($doctrine, $numbersMothers);
         $readDataMothers->addDataMothers($doctrine);
-        print_r($chartM);
+        // print_r($chartM);
 
         $numbersChildren = $childrenRepository->findAll();
         $chartChildren = $chartBuilder->createChart(Chart::TYPE_LINE);
@@ -50,11 +55,21 @@ class ProjectController extends AbstractController
         $readDataChildren = new ReadData();
         $readDataChildren->removeEntity($doctrine, $numbersChildren);
         $readDataChildren->addDataChildren($doctrine);
-        print_r($chartCh);
+        // print_r($chartCh);
+
+        $numbersChildrenPer1000 = $childrenPer1000Repository->findAll();
+        $chartChildrenPer1000 = $chartBuilder->createChart(Chart::TYPE_LINE);
+        $chartCh1000 = new ChartChildrenPer1000($numbersChildrenPer1000);
+        $chartCh1000->setChart($chartChildrenPer1000);
+        $readDataChildrenPer1000 = new ReadData();
+        $readDataChildrenPer1000->removeEntity($doctrine, $numbersChildrenPer1000);
+        $readDataChildrenPer1000->addDataChildrenPer1000($doctrine);
+        print_r($chartCh1000);
 
         $data = [
             'chartMothers' => $chartMothers,
-            'chartChildren' => $chartChildren
+            'chartChildren' => $chartChildren,
+            'chartChildrenPer1000' => $chartChildrenPer1000
         ];
 
         return $this->render('project/project.html.twig', $data);
