@@ -36,7 +36,7 @@ class MaternalMortality
         return $this->year;
     }
 
-    public function setYear(string $year): self
+    public function setYear(int $year): self
     {
         $this->year = $year;
 

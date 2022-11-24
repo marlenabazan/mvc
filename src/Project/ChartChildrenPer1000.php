@@ -4,15 +4,41 @@ namespace App\Project;
 
 class ChartChildrenPer1000
 {
+    /**
+     * year
+     *
+     * @var array<int>
+     */
     private $year = [];
 
+    /**
+     * neonatal
+     *
+     * @var array<int>
+     */
     private $neonatal = [];
 
+    /**
+     * infant
+     *
+     * @var array<int>
+     */
     private $infant = [];
 
+    /**
+     * under5
+     *
+     * @var array<int>
+     */
     private $under5 = [];
 
-    public function __construct(array $numbers)
+    /**
+     * __construct
+     *
+     * @param array $numbers
+     * @return void
+     */
+    public function __construct($numbers)
     {
         foreach ((array) $numbers as $line) {
             $this->year[] = $line->getYear();
@@ -22,6 +48,12 @@ class ChartChildrenPer1000
         }
     }
 
+    /**
+     * setChart
+     *
+     * @param mixed $chart
+     * @return void
+     */
     public function setChart($chart): void
     {
         $chart->setData([

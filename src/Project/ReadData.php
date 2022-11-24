@@ -9,6 +9,12 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class ReadData
 {
+    /**
+     * readData
+     *
+     * @param string $file
+     * @return array<int>
+     */
     public function readData($file)
     {
         $numbers = [];
@@ -25,9 +31,15 @@ class ReadData
         return $numbers;
     }
 
+    /**
+     * removeEntity
+     *
+     * @param array $numbers
+     * @return void
+     */
     public function removeEntity(
         ManagerRegistry $doctrine,
-        array $numbers
+        $numbers
     ) {
         $entityManager = $doctrine->getManager();
         foreach ($numbers as $number) {
@@ -35,6 +47,11 @@ class ReadData
         };
     }
 
+    /**
+     * addDataMothers
+     *
+     * @return void
+     */
     public function addDataMothers(
         ManagerRegistry $doctrine,
     ) {
@@ -55,6 +72,11 @@ class ReadData
         }
     }
 
+    /**
+     * addDataChildren
+     *
+     * @return void
+     */
     public function addDataChildren(
         ManagerRegistry $doctrine,
     ) {
@@ -79,6 +101,11 @@ class ReadData
         }
     }
 
+    /**
+     * addDataChildrenPer1000
+     *
+     * @return void
+     */
     public function addDataChildrenPer1000(
         ManagerRegistry $doctrine,
     ) {

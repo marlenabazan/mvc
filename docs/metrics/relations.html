@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2022-11-14 23:46:37        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2022-11-24 01:48:41        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -253,7 +253,7 @@
 
     var relations = [
     {
-        "name": "\\App\\Repository\\ProductRepository",
+        "name": "\\App\\Repository\\MaternalMortalityRepository",
         "size": 3000,
         "relations": []
     },
@@ -268,7 +268,37 @@
         "relations": []
     },
     {
+        "name": "\\App\\Entity\\MaternalMortality",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\ProductRepository",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Entity\\Product",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\ChildrenPer1000Repository",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\ChildrenPer1000",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\ChildrenRepository",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\Children",
         "size": 3000,
         "relations": []
     },
@@ -355,6 +385,54 @@
         "name": "\\Symfony\\Component\\HttpFoundation\\Request",
         "size": 3000,
         "relations": []
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\UX\\Chartjs\\Builder\\ChartBuilderInterface",
+            "\\App\\Repository\\MaternalMortalityRepository",
+            "\\App\\Repository\\ChildrenRepository",
+            "\\App\\Repository\\ChildrenPer1000Repository",
+            "\\App\\Project\\ChartMothers",
+            "\\App\\Project\\ChartChildren",
+            "\\App\\Project\\ChartChildrenPer1000",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Project\\ReadData"
+        ]
+    },
+    {
+        "name": "\\Symfony\\UX\\Chartjs\\Builder\\ChartBuilderInterface",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Project\\ChartMothers",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Project\\ChartChildren",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Project\\ChartChildrenPer1000",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Project\\ReadData",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\MaternalMortality",
+            "\\App\\Entity\\Children",
+            "\\App\\Entity\\ChildrenPer1000"
+        ]
     },
     {
         "name": "\\App\\Controller\\GameController",
