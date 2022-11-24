@@ -5,6 +5,13 @@ namespace App\Entity;
 use App\Repository\ChildrenPer1000Repository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+  * This will suppress ShortVariable
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
+
 #[ORM\Entity(repositoryClass: ChildrenPer1000Repository::class)]
 class ChildrenPer1000
 {

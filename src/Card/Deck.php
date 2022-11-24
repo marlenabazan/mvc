@@ -107,7 +107,7 @@ class Deck extends Card
     /**
      * getDeck
      *
-     * @return array<string>
+     * @return array
      */
     public function getDeckStr()
     {

@@ -2,6 +2,13 @@
 
 namespace App\Card;
 
+/**
+  * This will suppress StaticAccess
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.StaticAccess)
+ */
+
 class DeckWith2Jokers extends Deck
 {
     /**

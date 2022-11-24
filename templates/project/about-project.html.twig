@@ -1,14 +1,19 @@
-{% extends "base.html.twig" %}
+{% extends "base-project.html.twig" %}
 
-{% block title %}About{% endblock %}
+{% block title %}Project{% endblock %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row mt-5 col-sm-8 offset-2">
-        {{ include('project/text/about.markdown.twig')|markdown_to_html }}
+<div class="container-fluid">
+    <div class="row mt-4 col-lg-12">
+        <a href="{{ url("project") }}">Tillbaka till projektet</a>
     </div>
 </div>
 
+<div class="container-fluid">
+    <div class="row mt-4 col-lg-10">
+        {{ include('project/text/about.markdown.twig')|markdown_to_html }}
+    </div>
+</div>
 
 {% endblock %}

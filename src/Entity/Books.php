@@ -5,6 +5,13 @@ namespace App\Entity;
 use App\Repository\BooksRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+  * This will suppress ShortVariable
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
+
 #[ORM\Entity(repositoryClass: BooksRepository::class)]
 class Books
 {
@@ -17,7 +24,7 @@ class Books
     private $title;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $ISBN;
+    private $isbn;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $author;
@@ -42,14 +49,14 @@ class Books
         return $this;
     }
 
-    public function getISBN(): ?string
+    public function getIsbn(): ?string
     {
-        return $this->ISBN;
+        return $this->isbn;
     }
 
-    public function setISBN(string $ISBN): self
+    public function setIsbn(string $isbn): self
     {
-        $this->ISBN = $ISBN;
+        $this->isbn = $isbn;
 
         return $this;
     }

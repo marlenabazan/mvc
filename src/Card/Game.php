@@ -9,6 +9,12 @@ use App\Card\Player;
 
 /**
  * Class Game
+ *
+ *
+ * This will suppress MissingImport
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.MissingImport)
  */
 class Game extends Deck
 {
@@ -18,7 +24,7 @@ class Game extends Deck
 
     /**
      * __construct
-     * @SuppressWarnings(PHPMD.MissingImport)
+     *
      */
     public function __construct()
     {
@@ -30,7 +36,7 @@ class Game extends Deck
     /**
      * getDeck
      *
-     * @return array<Card>
+     * @return array
      */
     public function getDeck()
     {

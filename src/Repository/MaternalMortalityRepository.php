@@ -13,6 +13,11 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method MaternalMortality|null findOneBy(array $criteria, array $orderBy = null)
  * @method MaternalMortality[]    findAll()
  * @method MaternalMortality[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * This will suppress BooleanArgumentFlag
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 class MaternalMortalityRepository extends ServiceEntityRepository
 {

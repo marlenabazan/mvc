@@ -2,40 +2,28 @@
 
 namespace App\Project;
 
-use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
-use Symfony\UX\Chartjs\Model\Chart;
-
 use App\Entity\MaternalMortality;
 use App\Entity\Children;
 use App\Entity\ChildrenPer1000;
-
-
-use App\Repository\MaternalMortalityRepository;
-
 use Doctrine\Persistence\ManagerRegistry;
 
-
-class ReadData {
-
-    public function readData($file) {
-        // $rowNo = 1;
+class ReadData
+{
+    public function readData($file)
+    {
         $numbers = [];
-        // $fp is file pointer to file sample.csv
-        if (($fp = fopen($file, "r")) !== FALSE) {
-        while (($row = fgetcsv($fp, 1000, ",")) !== FALSE) {
-        $num = count($row);
-        // echo "<p> $num fields in line $rowNo: <br /></p>\n";
-        // $rowNo++;
-        for ($c=0; $c < $num; $c++) {
-            array_push($numbers, $row[$c]);
-        // echo $row[$c] . "<br />\n";
+        $handle = fopen($file, "r");
+        if ($handle !== false) {
+            while (($row = fgetcsv($handle, 1000, ",")) !== false) {
+                $num = count($row);
+                for ($c = 0; $c < $num; $c++) {
+                    array_push($numbers, $row[$c]);
+                }
+            }
+            fclose($handle);
         }
-        }
-        fclose($fp);
-        }
-        // print_r($numbers);
         return $numbers;
-        }
+    }
 
     public function removeEntity(
         ManagerRegistry $doctrine,
@@ -48,19 +36,15 @@ class ReadData {
     }
 
     public function addDataMothers(
-        // MaternalMortalityRepository $maternalMortalityRepository,
         ManagerRegistry $doctrine,
     ) {
-
         $numbers = $this->readData("../data/maternal-mortality.csv");
+        $numbersLength = count($numbers);
 
-        // $entityManager = $doctrine->getManager();
-
-        for ($c=2; $c < count($numbers); $c++) {
+        for ($c = 2; $c < $numbersLength; $c++) {
             $entityManager = $doctrine->getManager();
 
             $chart1 = new MaternalMortality();
-            // echo $numbers[$c];
             $chart1->setYear($numbers[$c]);
             $c++;
             $chart1->setMaternalMortality($numbers[$c]);
@@ -68,24 +52,19 @@ class ReadData {
             $entityManager->persist($chart1);
 
             $entityManager->flush();
-            // var_dump($chart1);
         }
     }
 
     public function addDataChildren(
-        // MaternalMortalityRepository $maternalMortalityRepository,
         ManagerRegistry $doctrine,
     ) {
-
         $numbers = $this->readData("../data/children.csv");
+        $numbersLength = count($numbers);
 
-        // $entityManager = $doctrine->getManager();
-
-        for ($c=0; $c < count($numbers); $c++) {
+        for ($c = 0; $c < $numbersLength; $c++) {
             $entityManager = $doctrine->getManager();
 
             $chartChildren = new Children();
-            // echo $numbers[$c];
             $chartChildren->setYear($numbers[$c]);
             $c++;
             $chartChildren->setNeonatal($numbers[$c]);
@@ -97,24 +76,19 @@ class ReadData {
             $entityManager->persist($chartChildren);
 
             $entityManager->flush();
-            // var_dump($chart1);
         }
     }
 
     public function addDataChildrenPer1000(
-        // MaternalMortalityRepository $maternalMortalityRepository,
         ManagerRegistry $doctrine,
     ) {
-
         $numbers = $this->readData("../data/childrenPer1000.csv");
+        $numbersLength = count($numbers);
 
-        // $entityManager = $doctrine->getManager();
-
-        for ($c=0; $c < count($numbers); $c++) {
+        for ($c = 0; $c < $numbersLength; $c++) {
             $entityManager = $doctrine->getManager();
 
             $chartChildrenPer1000 = new ChildrenPer1000();
-            // echo $numbers[$c];
             $chartChildrenPer1000->setYear($numbers[$c]);
             $c++;
             $chartChildrenPer1000->setNeonatal($numbers[$c]);
@@ -126,7 +100,6 @@ class ReadData {
             $entityManager->persist($chartChildrenPer1000);
 
             $entityManager->flush();
-            // var_dump($chart1);
         }
     }
 }

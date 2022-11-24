@@ -9,10 +9,17 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ *
+ *
  * @method Books|null find($id, $lockMode = null, $lockVersion = null)
  * @method Books|null findOneBy(array $criteria, array $orderBy = null)
  * @method Books[]    findAll()
  * @method Books[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * This will suppress BooleanArgumentFlag
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 class BooksRepository extends ServiceEntityRepository
 {

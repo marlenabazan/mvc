@@ -45,7 +45,7 @@ class LibraryController extends AbstractController
 
         $book->setTitle($request->request->get('title'));
         $book->setAuthor($request->request->get('author'));
-        $book->setISBN($request->request->get('ISBN'));
+        $book->setIsbn($request->request->get('isbn'));
         $book->setImage($request->request->get('image'));
 
         $entityManager->persist($book);
@@ -161,7 +161,7 @@ class LibraryController extends AbstractController
 
         $book->setTitle($request->request->get('title'));
         $book->setAuthor($request->request->get('author'));
-        $book->setISBN($request->request->get('ISBN'));
+        $book->setIsbn($request->request->get('isbn'));
         $book->setImage($request->request->get('image'));
 
         $entityManager->persist($book);

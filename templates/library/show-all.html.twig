@@ -22,7 +22,7 @@
                             <th scope="row">{{ book.id }}</th>
                             <td><a href="{{ path("show-by-id", {bookId: book.id} ) }}">{{ book.title }}</a></td>
                             <td>{{ book.author }}</td>
-                            <td>{{ book.ISBN }}</td>
+                            <td>{{ book.isbn }}</td>
                             <td><a href="{{ path("update-by-id", {bookId: book.id} ) }}">Update</a> | 
                                 <a href="{{ path("delete-by-id", {bookId: book.id} ) }}">Delete</a></td>
                         </tr>

@@ -9,6 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+/**
+  * This will suppress ElseExpression
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.ElseExpression)
+ */
+
 class GameController extends AbstractController
 {
     /**
@@ -72,7 +79,7 @@ class GameController extends AbstractController
             $session->set("deck", $deck);
             $session->set("playersScore", $playersScore);
 
-            if ($playersScore > 21) {
+            if (intval($playersScore) > 21) {
                 $lost = true;
                 $session->clear();
             }

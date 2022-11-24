@@ -13,6 +13,11 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method ChildrenPer1000|null findOneBy(array $criteria, array $orderBy = null)
  * @method ChildrenPer1000[]    findAll()
  * @method ChildrenPer1000[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * This will suppress BooleanArgumentFlag
+ * warnings in this class
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 class ChildrenPer1000Repository extends ServiceEntityRepository
 {
