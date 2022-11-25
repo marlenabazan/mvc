@@ -32,4 +32,12 @@ class ReadDataTest extends TestCase
 
         $this->assertInstanceOf("\App\Project\ReadData", $data);
     }
+
+    // public function testRemoveEntity()
+    // {
+    //     $data = new ReadData();
+    //     $data->readData("data/maternal-mortality.csv");
+
+    //     $this->assertInstanceOf("\App\Project\ReadData", $data);
+    // }
 }

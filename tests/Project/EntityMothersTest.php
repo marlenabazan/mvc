@@ -29,6 +29,5 @@ class EntityMothersTest extends TestCase
 
         $this->assertEquals($chart->getYear(), 2000);
         $this->assertEquals($chart->getMaternalMortality(), 10);
-
     }
 }
