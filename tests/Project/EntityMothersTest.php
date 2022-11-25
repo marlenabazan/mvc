@@ -13,8 +13,11 @@ use App\Repository\MaternalMortalityRepository;
 class EntityMothersTest extends TestCase
 {
     /**
-     * Test create MaternalMortality entity
+     * testCreateEntity
+     * 
+     * test create MaternalMortality entity
      *
+     * @return void
      */
     public function testCreateEntity()
     {

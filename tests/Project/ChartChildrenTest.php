@@ -13,9 +13,13 @@ use Symfony\UX\Chartjs\Model\Chart;
  */
 class ChartChildrenTest extends TestCase
 {
+    
     /**
-     * Construct empty object
+     * testCreateEmptyChart
+     * 
+     * test create an empty ChartChildren object
      *
+     * @return void
      */
     public function testCreateEmptyChart()
     {
@@ -25,10 +29,13 @@ class ChartChildrenTest extends TestCase
 
         $this->assertInstanceOf("\App\Project\ChartChildren", $chart);
     }
-
+    
     /**
-     * test create ChartChildren
+     * testCreateChart
+     * 
+     * test create ChartChildren object with data
      *
+     * @return void
      */
     public function testCreateChart()
     {

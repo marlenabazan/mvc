@@ -17,7 +17,7 @@ class Children
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]    
+    #[ORM\Column(type: 'integer')]
     /**
      * id
      *
@@ -25,7 +25,7 @@ class Children
      */
     private $id;
 
-    #[ORM\Column(type: 'integer')]    
+    #[ORM\Column(type: 'integer')]
     /**
      * year
      *
@@ -33,7 +33,7 @@ class Children
      */
     private $year;
 
-    #[ORM\Column(type: 'integer')]    
+    #[ORM\Column(type: 'integer')]
     /**
      * neonatal
      *
@@ -41,7 +41,7 @@ class Children
      */
     private $neonatal;
 
-    #[ORM\Column(type: 'integer')]    
+    #[ORM\Column(type: 'integer')]
     /**
      * infant
      *
@@ -49,7 +49,7 @@ class Children
      */
     private $infant;
 
-    #[ORM\Column(type: 'integer')]    
+    #[ORM\Column(type: 'integer')]
     /**
      * under5
      *

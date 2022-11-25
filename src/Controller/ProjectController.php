@@ -52,7 +52,7 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route("/proj/about", name="about-project", methods={"GET"})
+     * @Route("/proj/about", name="about-project")
      */
     public function aboutProject(): Response
     {

@@ -14,8 +14,11 @@ use Symfony\UX\Chartjs\Model\Chart;
 class ChartMothersTest extends TestCase
 {
     /**
-     * Construct empty object
+     * testCreateEmptyChart
+     * 
+     * test create an empty ChartMothers object
      *
+     * @return void
      */
     public function testCreateEmptyChart()
     {
@@ -27,8 +30,11 @@ class ChartMothersTest extends TestCase
     }
 
     /**
-     * test create ChartMothers
+     * testCreateChart
+     * 
+     * test create ChartMothers object with data
      *
+     * @return void
      */
     public function testCreateChart()
     {
