@@ -11,8 +11,18 @@
 </div>
 
 <div class="container-fluid">
-    <div class="row mt-4 col-lg-10">
-        {{ include('project/text/about.markdown.twig')|markdown_to_html }}
+    <div class="row mt-4 col-lg-12">
+        <div class="col-sm-1">
+            <img class="img-fluid" src="../img/project/logo3.png" alt="bild">
+        </div>
+        <div class="col-sm-9">
+            {{ include('project/text/about.markdown.twig')|markdown_to_html }}
+        </div>
+
+
+
+
+        
     </div>
 </div>
 

@@ -40,7 +40,7 @@ class ChartChildrenPer1000
      */
     public function __construct($numbers)
     {
-        foreach ((array) $numbers as $line) {
+        foreach ($numbers as $line) {
             $this->year[] = $line->getYear();
             $this->neonatal[] = $line->getNeonatal();
             $this->infant[] = $line->getInfant();
@@ -61,20 +61,20 @@ class ChartChildrenPer1000
             'datasets' => [
                 [
                     'label' => 'Nyfödd',
-                    'backgroundColor' => 'blue',
-                    'borderColor' => 'blue',
+                    'backgroundColor' => '#6790AB',
+                    'borderColor' => '#7CAECF',
                     'data' => $this->neonatal,
                 ],
                 [
                     'label' => 'Spädbarn',
-                    'backgroundColor' => 'green',
-                    'borderColor' => 'green',
+                    'backgroundColor' => '#537D48',
+                    'borderColor' => '#73AD65',
                     'data' => $this->infant,
                 ],
                 [
                     'label' => 'Under 5',
-                    'backgroundColor' => 'red',
-                    'borderColor' => 'red',
+                    'backgroundColor' => '#96779E',
+                    'borderColor' => '#B28EBD',
                     'data' => $this->under5,
                 ],
             ],
@@ -84,7 +84,7 @@ class ChartChildrenPer1000
             'scales' => [
                 'y' => [
                     'suggestedMin' => 0,
-                    'suggestedMax' => 4,
+                    'suggestedMax' => 4.5,
                 ],
             ],
         ]);

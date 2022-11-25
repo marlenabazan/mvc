@@ -6,18 +6,60 @@
 
 <div class="container-fluid">
     <div class="row mt-4 col-lg-12">
-        <a href="{{ url("about-project") }}">about</a>
-        project
+        <a href="{{ url("about-project") }}">Om projektet</a>
     </div>
 </div>
 
 <div class="container-fluid">
-    <div class="row mt-4 col-lg-5">
-        {{ render_chart(chartMothers) }}
-        {{ render_chart(chartChildren) }}
-        {{ render_chart(chartChildrenPer1000) }}
+    <div class="row mt-4 col-lg-12">
+        <div class="col-sm-1">
+            <img class="img-fluid" src="img/project/logo3.png" alt="bild">
+        </div>
+        <div class="col-sm-5">
+            {{ include('project/text/goals.markdown.twig')|markdown_to_html }}
+            <img class="img-fluid" src="img/project/delmal3-1.png" alt="bild">
+            <img class="img-fluid" src="img/project/delmal3-2.png" alt="bild">
+        </div>
+
+        <div class="mt-5 col-sm-4">
+            <figure>
+                {{ render_chart(chartMothers) }}
+                <figcaption class="figure-caption text-center">Mödradödligheten per 100 000 levande födda i Sverige, Källa: <a href="https://www.scb.se/hitta-statistik/temaomraden/agenda-2030/mal-3/#141062">SCB</a></figcaption>
+            </figure>
+        </div>
     </div>
-    
+</div>
+
+<div class="container-fluid">
+    <div class="row mt-5 col-lg-12">
+        <div class="col-sm-4 offset-1">
+            <figure>
+                {{ render_chart(chartChildren) }}
+                <figcaption class="figure-caption text-center">Antalet döda barn i Sverige, Källa: <a href="https://unstats.un.org/sdgs/dataportal/countryprofiles/swe#goal-3">United Nations</a></figcaption>
+            </figure>
+        </div>
+        <div class="mt-2 col-sm-5">
+            {{ include('project/text/progress.markdown.twig')|markdown_to_html }}
+        </div> 
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row mt-4 col-lg-12">
+        <div class="mt-5 col-sm-4 offset-1">
+            {{ include('project/text/ranking.markdown.twig')|markdown_to_html }}
+        </div>
+
+        <div class="col-sm-5">
+            <figure>
+                {{ render_chart(chartChildrenPer1000) }}
+                <figcaption class="figure-caption text-center">Barndödligheten per 100 000 levande födda i Sverige, Källa: <a href="https://unstats.un.org/sdgs/dataportal/countryprofiles/swe#goal-3">United Nations</a></figcaption>
+            </figure>
+        </div> 
+    </div>
 </div>
 
 {% endblock %}
+
+
+

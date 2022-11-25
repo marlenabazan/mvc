@@ -45,8 +45,8 @@ class ChartMothers
             'datasets' => [
                 [
                     'label' => 'Mödradödlighet',
-                    'backgroundColor' => 'blue',
-                    'borderColor' => 'blue',
+                    'backgroundColor' => '#BF6D58',
+                    'borderColor' => '#F0896E',
                     'data' => $this->maternalMortality,
                 ],
             ],

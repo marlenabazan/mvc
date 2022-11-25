@@ -17,19 +17,44 @@ class Children
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer')]    
+    /**
+     * id
+     *
+     * @var int
+     */
     private $id;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer')]    
+    /**
+     * year
+     *
+     * @var int
+     */
     private $year;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer')]    
+    /**
+     * neonatal
+     *
+     * @var int
+     */
     private $neonatal;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer')]    
+    /**
+     * infant
+     *
+     * @var int
+     */
     private $infant;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer')]    
+    /**
+     * under5
+     *
+     * @var int
+     */
     private $under5;
 
     public function getId(): ?int
