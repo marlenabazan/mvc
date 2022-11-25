@@ -4,14 +4,14 @@ namespace App\Project;
 
 use PHPUnit\Framework\TestCase;
 
-use App\Project\ChartChildren;
-use App\Entity\Children;
+use App\Project\ChartChildrenPer1000;
+use App\Entity\ChildrenPer1000;
 use Symfony\UX\Chartjs\Model\Chart;
 
 /**
  * Test cases for class ChartChildren.
  */
-class ChartChildrenTest extends TestCase
+class ChartChildrenPer1000Test extends TestCase
 {
     /**
      * Construct empty object
@@ -21,18 +21,18 @@ class ChartChildrenTest extends TestCase
     {
         $numbers = [];
 
-        $chart = new ChartChildren($numbers);
+        $chart = new ChartChildrenPer1000($numbers);
 
-        $this->assertInstanceOf("\App\Project\ChartChildren", $chart);
+        $this->assertInstanceOf("\App\Project\ChartChildrenPer1000", $chart);
     }
-
+    
     /**
-     * test create ChartChildren
+     * test create ChartChildrenPer1000
      *
      */
     public function testCreateChart()
     {
-        $childrenEntity = new Children();
+        $childrenEntity = new ChildrenPer1000();
         $childrenEntity->setYear(2000);
         $childrenEntity->setNeonatal(2);
         $childrenEntity->setInfant(3);
@@ -40,10 +40,10 @@ class ChartChildrenTest extends TestCase
         $numbers = [$childrenEntity];
 
         $chartBuilder = new \Symfony\UX\Chartjs\Builder\ChartBuilder(Chart::TYPE_PIE);
-        $chartChildren = $chartBuilder->createChart(Chart::TYPE_LINE);
-        $chart = new ChartChildren($numbers);
-        $chart->setChart($chartChildren);
+        $chartChildrenPer1000 = $chartBuilder->createChart(Chart::TYPE_LINE);
+        $chart = new ChartChildrenPer1000($numbers);
+        $chart->setChart($chartChildrenPer1000);
 
-        $this->assertInstanceOf("\App\Project\ChartChildren", $chart);
+        $this->assertInstanceOf("\App\Project\ChartChildrenPer1000", $chart);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Project;
 
 use PHPUnit\Framework\TestCase;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Test cases for class ReadData.
@@ -10,12 +11,25 @@ use PHPUnit\Framework\TestCase;
 class ReadDataTest extends TestCase
 {
     /**
-     * Construct object with arguments and verify its value
+     * Construct object
      *
      */
     public function testCreateReadData()
     {
-        $data = new ReadData("../data/children.csv");
+        $data = new ReadData();
+
+        $this->assertInstanceOf("\App\Project\ReadData", $data);
+    }
+
+    /**
+     * Test readData method
+     *
+     */
+    public function testReadDataMothers()
+    {
+        $data = new ReadData();
+        $data->readData("data/maternal-mortality.csv");
+
         $this->assertInstanceOf("\App\Project\ReadData", $data);
     }
 }
