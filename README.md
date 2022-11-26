@@ -7,4 +7,4 @@ Report page for MVC course there we focuse on object-oriented programming techni
 Using framework Symfony I built few pages including the 21-game, library that communicates with database using Doctrine ORM and my final project for this course.
 
 The project is about one of the Sustainable Development Goals - Good health and well-being.
-I show a few charts with some statistics that I store in database using ORM. There is also a project about-page with project documentation. 
+I show a few charts with some statistics that I store in database using ORM. There is also an about-page with projects documentation. 
