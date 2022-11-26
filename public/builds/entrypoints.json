@@ -1,0 +1,14 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "http://www.student.bth.se/~mabn21/dbwebb-kurser/mvc/me/report/public/builds/runtime.61b1725c.js",
+        "http://www.student.bth.se/~mabn21/dbwebb-kurser/mvc/me/report/public/builds/466.796bae5f.js",
+        "http://www.student.bth.se/~mabn21/dbwebb-kurser/mvc/me/report/public/builds/app.73e381ec.js"
+      ],
+      "css": [
+        "/builds/app.b75294ae.css"
+      ]
+    }
+  }
+}
