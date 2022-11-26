@@ -1,0 +1,28 @@
+<h3><u>kmom10</u></h3>
+
+##### **Krav 1, 2, 3**<br>
+Mitt fokus på projektet var att visualisera indikatorer på hållbarhet. Jag valde mål #3 av de 17 Globala målen - god hälsa och välbefinnande. Jag visar tre diagram på barn- och mödradödlighet med hjälp ac ChartJS och berättar lite om vad de Globala målen är och hur det går för världen och för Sverige att genomföra målet #3. 
+
+All statistik har jag hämtat från SCB och United Nations hemsida och lagt den i tre cvs filer. Jag lägger de i databasen och läser via ORM. 
+
+**Tester**<br>
+Jag lyckades inte täcka alla rader av min ReadData-klassen. Jag har då läst lite om mocking och skrev några tester för entity-klasser. Jag har uppnått kodtäckning på 57%. 
+
+**Kodstil**<br>
+Min kod går genom lint nästan felfritt. Jag kommenterade bort några fel från repository klasser osv. Jag kommenterade även bort ShortVariable felet, ”id” är ju ett bra variabelnamn. Jag körde lint på level 6, fixade alla fel jag kunde och bytte till level 2 så att alla de felen från repository osv inte skulle synas. 
+
+**Docs metrics scrutinizer**<br>
+Rapporter från PhpDoc, PhpMetrics och Scrutinizer finns på plats. 
+
+Scrutinizer gav mig 6.2 på kodkvalitet och 57% på kodtäckning. Kanske inte väldigt imponerande men som jag skrev i föregående kmom, scrutinizer bedömer hela koden som kommer med ramverket. 
+
+När jag skrev mina klasser tänkte jag på Scrutinizer och PhpMetrics och jag är nöjd med de nya resultaten från mitt projekt. 
+
+##### **Krav 4**<br>
+Jag har implementerat ett av de optionella krav. Jag har skrivit en artikel där jag relaterar till begreppet "snygg och god kod". Några standarder vilka avgör en snygg kod lyfts fram och jag diskuterar lite om vad jag anser som snygg kod. Jag relaterar också till de begrepp, verktyg och mätvärden som kursen hanterat som t ex 4C, PhpMetrics, Scrutinizer. Artikeln ger inte ett komplett svar på frågan och är snarare subiektiva funderingar.
+
+##### **Tankar om projektet**<br>
+Att genomföra projektet gick bra och smidigt. Jag gillar att arbeta med databaser och det var intressant och roligt att jobba med ORM. Jag har fastnat lite vid min första diagram. Den ville inte synas bara. Sedan visade sig att encore tag fattades. Jag hade också lite problem med att publicera på studentservern för att public/build följde inte med. Jag hittade lösningen på Discord då många hade samma problem. 
+
+##### **Tankar om kursen**<br>
+Kursen gav mig lite annan syn på php. Dock blir jag fortfarande irriterad när allting slutar fungera för att jag har glömt en semikolon. Jag tror att första hälften av kursen var betydligt svårare än den andra och att projektet var inte särskilt svårt att genomföra. Det är bara synd att jag inte har hunnit implementera alla krav. Utöver nya färdigheter i Symfony ramverket och Doctrine ORM har jag fått kunskap om ren och snygg kod som jag tror kommer att följa med mig fram till slutet av min programmeringskarriär. 
