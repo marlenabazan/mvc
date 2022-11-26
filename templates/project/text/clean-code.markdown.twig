@@ -1,0 +1,23 @@
+Finns det verkligen ett begrepp som är “Snygg och god kod”? Kan en programmerare uppfatta kod som “snygg” och vad innebär det och hur producerar man “snygg kod"?
+
+Jag antar att alla har sin egen uppfattning om vad snygg kod är. I min åsikt kan snygg kod beskrivas som en programmeringsstil som är fokuserad på läsaren. Den kännetecknas av att den inte bara riktar sig till datorer utan även till människor - den ska också vara lätt för andra programmerare att förstå och kunna vidareutveckla eller göra eventuella ändringar i.
+
+Första regeln för snygg kod vi lärde oss var att skriva DRY-kod (*eng. Don’t Repeat Yourself*). Regeln säger att man ska undvika olika typer av upprepningar. Det betyder att man inte ska klistra in eller skriva samma kodbitar på olika ställen. Sådan duplicering av kod får den att växa, kräver samma modifieringar på flera ställen för eventuella ändringar, och det ökar i sin tur möjligheten att göra fel.
+
+Under kursen jobbade vi med några verktyg som utför automatiserade tester och upptäcker kod med förbättringspotential, PhpMetrics och Scrutinizer. De underlättar jobbet med kodkvalitet genom att beräkna bland annat 4C (*coverage, complexity, cohesion, coupling*) som verkar vara en av indikatorer på ren kod. 
+
+Att skriva god kod innebär att skriva testad kod (förutsatt att de är bra tester). På så sätt kan framtida användare vara säkra på att de jobbar med kod som fungerar. När de gör ändringar kommer de dessutom att ha en bekräftelse att ingenting har gått sönder.
+
+Koden ska också vara så enkel som möjligt och komplexiteten ska inte överstiga 10. Annars, när man har många beslutspunkter i koden, blir den rörig och det tar betydligt mer tid för att läsa och förstå den. 
+
+Mycket långa och multifunktionella klasser minskar också läsbarheten av koden. En cohesiv klass ska ha ett ansvarsområde, dvs göra exakt en sak. Om man märker att en klass eller metod gör för många saker samtidigt är det bra att uppdela den i flera klasser eller metoder. 
+
+Det är också “good practice” att inte ha många beroende i koden. Beroendet är när någon klass använder en annan klass eller används av en annan klass. I ren kod bör den hållas till ett minimum.
+
+Av min korta erfarenhet med koden vågar jag säga att “snygg kod” är framför allt lätt att läsa och förstå. Kanske det vore värt att dela upp “snygg och god kod” i “snygg kod” och “god kod”. Den ska också vara funktionell och effektiv samtidigt förstås men det har inte mycket med själva “snyggheten” att göra. 
+
+När jag googlar några kodexemplar (och det gör jag ofta), jag ger ofta upp någon lösning på mitt nuvarande problem eftersom jag tycker att koden är för svår att förstå och jag vill inte slösa tid på att förstå den. Och här pratar jag inte om kod vilken jag inte förstår eftersom jag fortfarande saknar vissa kunskaper. 
+
+Det är alltid skönt men enkel och tydlig kod, med några tydliga kommentarer om de behövs. För många kommentarer gör också koden mindre läsbar. Om koden är välskriven och har praktiska namn på variabler blir koden självbeskrivande och ofta behövs det inte många kommentarer eller behövs de inte alls. Bara några rader som innehåller kommentarer om en modul, klass eller metod är det som räcker. PhpDoc är en bra standard på att skriva sina kommentarer.
+
+Jag tycker att alla programmerare borde känna till standarderna för kod som anses vara snygg och god och inte nöja sig med att koden bara fungerar. Själv, när jag lärde känna alla dessa verktyg vi använde under kursen och alla dessa mätvärdena som avgör kodkvaliteten, när jag skriver kod nu har jag i bakhuvudet att det inte räcker att allt fungerar. Det är det viktigaste men för att underlätta sitt och andras framtida arbete ska vi också tänka på hur vi skriver vår kod.
